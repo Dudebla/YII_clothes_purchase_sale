@@ -1,0 +1,42 @@
+2019/10/20 03:14:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
+#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
+HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
+---
+2019/10/20 03:14:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
+#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
+---
+2019/10/20 03:19:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
+#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
+---
+2019/10/20 03:19:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
+#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
+---
+2019/10/20 03:19:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
+#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
+HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
+---
