@@ -1,6 +1,6 @@
 <?php
 $db_host='localhost';
-$db_name="school";
+$db_name="clothes_sale";
 $db_user="root";
 $db_pass='root';
 
