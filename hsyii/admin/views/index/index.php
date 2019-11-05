@@ -43,7 +43,10 @@
                     <?php foreach($v as $v_item){?>
                         <?php if(is_array($v_item)){?>
                             <?php foreach($v_item as $v_subitem){?>
-                                <?php if(count($v_subitem)>1){?><li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe"><?php echo $v_subitem[0];?></a></li><?php }?>
+                                <?php if(count($v_subitem)>1){?>
+                                    <li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe">
+                                        <?php echo $v_subitem[0];?></a></li>
+                                <?php }?>
                             <?php }?>
                         <?php }?>
                     <?php }?>

@@ -66,6 +66,7 @@ function login() {
     });
  }
 
+
 window.alert=function(str)   
   { 
 var iframe = document.createElement("IFRAME");

@@ -1,8 +1,8 @@
 <?php
 
-class StudentQuality extends BaseModel {
+class PurchaseRecords extends BaseModel {
     public function tableName() {
-        return '{{score_data_list}}';
+        return '{{purchase}}';
     }
 
     /**
@@ -11,15 +11,15 @@ class StudentQuality extends BaseModel {
     public function rules() {
       
         return array(
-            array('student_code', 'required', 'message' => '{attribute} 不能为空'),
-            array('student_name', 'required', 'message' => '{attribute} 不能为空'),
-            array('student_grade', 'required', 'message' => '{attribute} 不能为空'),
-            array('student_class', 'required', 'message' => '{attribute} 不能为空'),
-            array('student_sex', 'required', 'message' => '{attribute} 不能为空'),
-            array('score_type', 'required', 'message' => '{attribute} 不能为空'),
-            array('score', 'required', 'message' => '{attribute} 不能为空'),
-            array('add_time', 'required', 'message' => '{attribute} 不能为空'),
-            array('student_code,student_name,student_class,student_sex,student_birth,student_telnumber,student_email,add_time','safe',), 
+            array('purchase_no', 'required', 'message' => '{attribute} 不能为空'),
+            array('goods_no', 'required', 'message' => '{attribute} 不能为空'),
+            array('supplier_id', 'required', 'message' => '{attribute} 不能为空'),
+            array('staff_id', 'required', 'message' => '{attribute} 不能为空'),
+            // array('student_sex', 'required', 'message' => '{attribute} 不能为空'),
+            // array('score_type', 'required', 'message' => '{attribute} 不能为空'),
+            // array('score', 'required', 'message' => '{attribute} 不能为空'),
+            // array('add_time', 'required', 'message' => '{attribute} 不能为空'),
+            array('purchase_no,goods_no,supplier_id,staff_id,purchase_date,remark,quantity,total_amount,created','safe',), 
         );
     }
 
@@ -37,17 +37,16 @@ class StudentQuality extends BaseModel {
      */
     public function attributeLabels() {
         return array(
-            'id' => 'ID',
-             'student_code' => '学生学号',
-             'student_name' => '学生姓名',
-             'student_grade' => '学生年级',
-             'student_class' => '学生班级',
-             'student_sex' => '学生性别',
-             'score_type' => '成绩类型',
-             'score' => '成绩',
-             'add_time' => '添加时间',
-             'score_count' =>'总分' ,
-             'score_level' =>'评级'
+            'purchase_id' => '进货ID',
+             'purchase_no' => '进货单号',
+             'goods_no' => '商品编号',
+             'supplier_id' => '供应商ID',
+             'staff_id' => '职员ID',
+             'purchase_date' => '进货日期',
+             'remark' => '备注',
+             'quantity' => '数量',
+             'total_amount' => '总额',
+             'created' => '记录添加时间'
  );
 }
 
