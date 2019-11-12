@@ -45,17 +45,34 @@ class AccountInformationController extends BaseController {
  }
 
     ///列表搜索
-     public function actionIndex( $keywords = '') {
+     public function actionIndex( $keywords = '',$date = '') {
         set_cookie('_currentUrl_', Yii::app()->request->url);
         $modelName = $this->model;
         $model = $modelName::model();
-         $data = $model->findAll();
+        $data = $model->findAll();
+
         $criteria = new CDbCriteria;
         if($keywords!=''){
             $criteria->addSearchCondition('account_no',"$keywords");
+        }
+        if($date!=''){
+            $criteria->addSearchCondition('created',"$date");
         }
         $criteria->order = 'account_no';
         $data = array();
         parent::_list($model, $criteria, 'index', $data);
     }
+
+    // public function getPurchaseMoneyById(){
+    //         $records=this->hasMany(PurchaseRecords::className(),["purchase_id"=>"purchase_id"])->asArray()->all();
+    //         return $records;
+    // }
+    // public function getSellMoneyById(){
+    //         $records=this->hasMany(SellRecords::className(),["sell_id"=>"sell_id"])->asArray()->all();
+    //         return $records;
+    // }
+    // public function getReturnMoneyById(){
+    //         $records=this->hasMany(ReturnRecords::className(),["return_id"=>"return_id"])->asArray()->all();
+    //         return $records;
+    // }
 }

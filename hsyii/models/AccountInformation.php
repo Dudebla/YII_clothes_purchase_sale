@@ -15,11 +15,9 @@ class AccountInformation extends BaseModel {
             array('purchase_id', 'required', 'message' => '{attribute} 不能为空'),
             array('account_type', 'required', 'message' => '{attribute} 不能为空'),
             array('sell_id', 'required', 'message' => '{attribute} 不能为空'),
+            array('return_id', 'required', 'message' => '{attribute} 不能为空'),
             array('created', 'required', 'message' => '{attribute} 不能为空'),
-            // array('score_type', 'required', 'message' => '{attribute} 不能为空'),
-            // array('score', 'required', 'message' => '{attribute} 不能为空'),
-            // array('add_time', 'required', 'message' => '{attribute} 不能为空'),
-            array('account_no,purchase_id,account_type,sell_id,created','safe',), 
+            array('account_no,purchase_id,account_type,sell_id,return_id,created','safe',), 
         );
     }
 
@@ -27,9 +25,7 @@ class AccountInformation extends BaseModel {
      * 模型关联规则
      */
     public function relations() {
-        return array(
-         
-        );
+        return array();
     }
 
     /**
@@ -39,9 +35,10 @@ class AccountInformation extends BaseModel {
         return array(
             'account_id' => '账单ID',
              'account_no' => '账单编号',
-             'purchase_id' => '进货ID',
+             'purchase_id' => '进货信息ID',
              'account_type' => '进货类型',
-             'sell_id' => '销售ID',
+             'sell_id' => '销售信息ID',
+             'return_id'=> '退货信息ID',
              'created' => '记录添加日期',
  );
 }

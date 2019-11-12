@@ -1,486 +1,141 @@
-2019/10/21 08:41:29 [error] [exception.CException] exception 'CException' with message '属性 "Account.TUNAME" 未被定义.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CComponent.php:130
+2019/11/11 11:23:13 [error] [exception.CException] exception 'CException' with message '属性 "AccountInformation.id" 未被定义.' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CComponent.php:130
 Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('TUNAME')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('TUNAME')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Account), 'TUNAME')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Account), 'TUNAME', Array)
-#4 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Account), 'TUNAME', Array)
-#5 D:\WampServer\wamp64\www\workspace\hsyii\admin\views\index\login.php(29): CActiveForm->textField(Object(Account), 'TUNAME', Array)
-#6 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CBaseController.php(126): require('D:\\WampServer\\w...')
-#7 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\WampServer\\w...', Array, true)
-#8 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(872): CBaseController->renderFile('D:\\WampServer\\w...', Array, true)
-#9 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(785): CController->renderPartial('login', Array, true)
-#10 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(29): CController->render('login', Array)
-#11 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(11): IndexController->login_form()
-#12 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
-#13 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('')
-#17 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
-#18 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#19 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#20 {main}
-REQUEST_URI=/workspace/hsyii/index.php
----
-2019/10/21 08:45:14 [error] [exception.CException] exception 'CException' with message '属性 "Account.TUNAME" 未被定义.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CComponent.php:130
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('TUNAME')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('TUNAME')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Account), 'TUNAME')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Account), 'TUNAME', Array)
-#4 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Account), 'TUNAME', Array)
-#5 D:\WampServer\wamp64\www\workspace\hsyii\admin\views\index\login.php(29): CActiveForm->textField(Object(Account), 'TUNAME', Array)
-#6 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CBaseController.php(126): require('D:\\WampServer\\w...')
-#7 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\WampServer\\w...', Array, true)
-#8 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(872): CBaseController->renderFile('D:\\WampServer\\w...', Array, true)
-#9 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(785): CController->renderPartial('login', Array, true)
-#10 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(29): CController->render('login', Array)
-#11 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(11): IndexController->login_form()
-#12 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
-#13 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('')
-#17 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
-#18 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#19 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#20 {main}
-REQUEST_URI=/workspace/hsyii/index.php
----
-2019/10/21 08:51:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "进货记录" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0\xE5\xBD\x95')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0\xE5\xBD\x95')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('index/\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=index/%E8%BF%9B%E8%B4%A7%E8%AE%B0%E5%BD%95
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/21 08:51:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "供应商信息" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('\xE4\xBE\x9B\xE5\xBA\x94\xE5\x95\x86\xE4\xBF\xA1\xE6\x81\xAF')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('\xE4\xBE\x9B\xE5\xBA\x94\xE5\x95\x86\xE4\xBF\xA1\xE6\x81\xAF')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('index/\xE4\xBE\x9B\xE5\xBA\x94\xE5\x95\x86...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=index/%E4%BE%9B%E5%BA%94%E5%95%86%E4%BF%A1%E6%81%AF
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/21 08:51:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "进货记录" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0\xE5\xBD\x95')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0\xE5\xBD\x95')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('index/\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=index/%E8%BF%9B%E8%B4%A7%E8%AE%B0%E5%BD%95
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/21 08:52:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "进货记录" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0\xE5\xBD\x95')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0\xE5\xBD\x95')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('index/\xE8\xBF\x9B\xE8\xB4\xA7\xE8\xAE\xB0...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=index/%E8%BF%9B%E8%B4%A7%E8%AE%B0%E5%BD%95
----
-2019/10/21 08:52:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "PurchaseRecords" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('PurchaseRecords')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('PurchaseRecords')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('index/PurchaseR...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=index/PurchaseRecords
----
-2019/10/21 08:52:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/21 08:54:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/21 08:57:01 [error] [php] include(Teacher.php): failed to open stream: No such file or directory (D:\WampServer\wamp64\www\workspace\hsyii\framework\YiiBase.php:432)
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(23): spl_autoload_call()
-#1 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(18): IndexController->login_form()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\actions\CInlineAction.php(49): IndexController->actionLogout()
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(286): IndexController->runAction()
-#5 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(265): IndexController->runActionWithFilters()
-#6 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): IndexController->run()
-#7 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#8 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#9 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CWebApplication->run()
-REQUEST_URI=/workspace/hsyii/index.php?r=index/logout
-2019/10/21 09:04:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/23 08:25:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/10/23 08:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
----
-2019/11/04 15:23:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "StudentDataList/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('StudentDataList...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=StudentDataList/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:25:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "StudentDataList/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('StudentDataList...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=StudentDataList/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:31:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:31:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:32:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:34:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:38:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('index')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:40:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/04 15:40:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "PurchaseRecords/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:47:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(270): CController->missingAction('index')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:55:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "SupplierInformation/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('SupplierInforma...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=SupplierInformation/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:55:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "GoodsInformation/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('GoodsInformatio...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=GoodsInformation/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:55:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "SalesRecord/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('SalesRecord/ind...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=SalesRecord/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:55:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "ReturnRecord/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('ReturnRecord/in...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=ReturnRecord/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:55:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "CustomerInformation/index"。' in D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php:286
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('CustomerInforma...')
-#1 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CApplication->run()
-#3 {main}
-REQUEST_URI=/workspace/hsyii/index.php?r=CustomerInformation/index
-HTTP_REFERER=http://localhost:8088/workspace/hsyii/index.php
----
-2019/11/05 01:55:18 [error] [php] include(Teacher.php): failed to open stream: No such file or directory (D:\WampServer\wamp64\www\workspace\hsyii\framework\YiiBase.php:432)
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(23): spl_autoload_call()
-#1 D:\WampServer\wamp64\www\workspace\hsyii\admin\controllers\IndexController.php(18): IndexController->login_form()
-#2 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\actions\CInlineAction.php(49): IndexController->actionLogout()
-#3 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams()
-#4 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(286): IndexController->runAction()
-#5 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CController.php(265): IndexController->runActionWithFilters()
-#6 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(282): IndexController->run()
-#7 D:\WampServer\wamp64\www\workspace\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#8 D:\WampServer\wamp64\www\workspace\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#9 D:\WampServer\wamp64\www\workspace\hsyii\index.php(33): CWebApplication->run()
-REQUEST_URI=/workspace/hsyii/index.php?r=index/logout
-2019/11/05 02:17:10 [error] [exception.CDbException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
-2019/11/05 02:17:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbConnection.php:405
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbConnection.php(347): CDbConnection->open()
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CModule.php(394): CDbConnection->init()
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(459): CModule->getComponent('db')
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
-#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(672): CActiveRecord->getDbConnection()
-#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1477): CActiveRecord->getCommandBuilder()
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\PurchaseRecordsController.php(52): CActiveRecord->findAll()
-#8 [internal function]: PurchaseRecordsController->actionIndex('')
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(PurchaseRecordsController), Array)
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PurchaseRecordsController), Object(ReflectionMethod), Array)
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id')
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\views\AccountInformation\index.php(37): CActiveRecord->__get('id')
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(126): require('D:\\WampServer\\w...')
+#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\WampServer\\w...', Array, true)
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(872): CBaseController->renderFile('D:\\WampServer\\w...', Array, true)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('index', Array, true)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(68): CController->render('index', Array)
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(59): BaseController->_list(Object(AccountInformation), Object(CDbCriteria), 'index', Array)
+#8 [internal function]: AccountInformationController->actionIndex('')
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
 #11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
 #12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
 #13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
 #14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#15 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
+#15 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
 #16 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #17 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
 #18 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=PurchaseRecords/index
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
 HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
 ---
-2019/11/05 02:17:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "SalesRecord/index"。' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php:286
+2019/11/11 11:24:54 [error] [exception.CException] exception 'CException' with message '属性 "AccountInformation.id" 未被定义.' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CComponent.php:130
 Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('SalesRecord/ind...')
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id')
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\views\AccountInformation\index.php(45): CActiveRecord->__get('id')
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(126): require('D:\\WampServer\\w...')
+#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\WampServer\\w...', Array, true)
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(872): CBaseController->renderFile('D:\\WampServer\\w...', Array, true)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('index', Array, true)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(68): CController->render('index', Array)
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(59): BaseController->_list(Object(AccountInformation), Object(CDbCriteria), 'index', Array)
+#8 [internal function]: AccountInformationController->actionIndex('')
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
+#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
+#16 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#18 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
+---
+2019/11/11 11:28:45 [error] [exception.CException] exception 'CException' with message '属性 "AccountInformation.id" 未被定义.' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id')
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\views\AccountInformation\index.php(38): CActiveRecord->__get('id')
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(126): require('D:\\WampServer\\w...')
+#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\WampServer\\w...', Array, true)
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(872): CBaseController->renderFile('D:\\WampServer\\w...', Array, true)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('index', Array, true)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(68): CController->render('index', Array)
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(59): BaseController->_list(Object(AccountInformation), Object(CDbCriteria), 'index', Array)
+#8 [internal function]: AccountInformationController->actionIndex('')
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
+#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
+#16 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#18 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
+---
+2019/11/11 11:42:20 [error] [exception.CException] exception 'CException' with message '属性 "AccountInformation.id" 未被定义.' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id')
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\views\AccountInformation\index.php(38): CActiveRecord->__get('id')
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(126): require('D:\\WampServer\\w...')
+#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\WampServer\\w...', Array, true)
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(872): CBaseController->renderFile('D:\\WampServer\\w...', Array, true)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('index', Array, true)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(68): CController->render('index', Array)
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(59): BaseController->_list(Object(AccountInformation), Object(CDbCriteria), 'index', Array)
+#8 [internal function]: AccountInformationController->actionIndex('')
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
+#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
+#16 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#18 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
+---
+2019/11/11 11:42:38 [error] [exception.CException] exception 'CException' with message 'AccountInformationController 无法找到请求的视图 "update".' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php:881
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('update', Array, true)
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(36): CController->render('update', Array)
+#2 [internal function]: AccountInformationController->actionUpdate('1')
+#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('update')
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('accountInformat...')
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#12 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=accountInformation/update&id=1
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+---
+2019/11/11 11:42:46 [error] [exception.CException] exception 'CException' with message 'AccountInformationController 无法找到请求的视图 "update".' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php:881
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('update', Array, true)
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(36): CController->render('update', Array)
+#2 [internal function]: AccountInformationController->actionUpdate('1')
+#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('update')
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('accountInformat...')
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#12 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=accountInformation/update&id=1
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+---
+2019/11/11 13:43:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "InventoryInformation/index"。' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('InventoryInform...')
 #1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
 #3 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=SalesRecord/index
-HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
----
-2019/11/05 02:17:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'clothes_sale.score_data_list' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `score_data_list`.
-2019/11/05 02:17:36 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "PurchaseRecords" 对应的 table "{{score_data_list}}".' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php:2390
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(PurchaseRecords))
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1358): CActiveRecord->getTableSchema()
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\PurchaseRecordsController.php(52): CActiveRecord->findAll()
-#5 [internal function]: PurchaseRecordsController->actionIndex('')
-#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(PurchaseRecordsController), Array)
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PurchaseRecordsController), Object(ReflectionMethod), Array)
-#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
-#15 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
----
-2019/11/05 02:19:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_code' in 'order clause'. The SQL statement executed was: SELECT * FROM `purchase` `t` ORDER BY student_code LIMIT 15.
-2019/11/05 02:19:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_code' in 'order clause'' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbCommand.php:543
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(66): CActiveRecord->findAll(Object(CDbCriteria))
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\PurchaseRecordsController.php(59): BaseController->_list(Object(PurchaseRecords), Object(CDbCriteria), 'index', Array)
-#5 [internal function]: PurchaseRecordsController->actionIndex('')
-#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(PurchaseRecordsController), Array)
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PurchaseRecordsController), Object(ReflectionMethod), Array)
-#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
-#15 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
----
-2019/11/05 02:37:12 [error] [php] include(PublicDataList.php): failed to open stream: No such file or directory (D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\YiiBase.php:432)
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\views\PurchaseRecords\update.php(33): spl_autoload_call()
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(126): require()
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CBaseController.php(95): PurchaseRecordsController->renderInternal()
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(872): PurchaseRecordsController->renderFile()
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): PurchaseRecordsController->renderPartial()
-#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\PurchaseRecordsController.php(36): PurchaseRecordsController->render()
-#6 unknown(0): PurchaseRecordsController->actionUpdate()
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
-#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams()
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): PurchaseRecordsController->runAction()
-#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): PurchaseRecordsController->runActionWithFilters()
-#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): PurchaseRecordsController->run()
-#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#15 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CWebApplication->run()
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=purchaseRecords/update&id=12
-2019/11/05 02:44:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_code' in 'order clause'. The SQL statement executed was: SELECT * FROM `purchase` `t` ORDER BY student_code LIMIT 15.
-2019/11/05 02:44:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_code' in 'order clause'' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbCommand.php:543
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(66): CActiveRecord->findAll(Object(CDbCriteria))
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\PurchaseRecordsController.php(59): BaseController->_list(Object(PurchaseRecords), Object(CDbCriteria), 'index', Array)
-#5 [internal function]: PurchaseRecordsController->actionIndex('')
-#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(PurchaseRecordsController), Array)
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PurchaseRecordsController), Object(ReflectionMethod), Array)
-#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
-#15 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
----
-2019/11/05 02:45:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php:486
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(270): CController->missingAction('index')
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('PurchaseRecords...')
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
-#5 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=PurchaseRecords/index
-HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
----
-2019/11/05 02:46:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'clothes_sale.score_data_list' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `score_data_list`.
-2019/11/05 02:46:30 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "AccountInformation" 对应的 table "{{score_data_list}}".' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php:2390
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(AccountInformation))
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1358): CActiveRecord->getTableSchema()
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(52): CActiveRecord->findAll()
-#5 [internal function]: AccountInformationController->actionIndex('')
-#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
-#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
-#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
-#15 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
-HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
----
-2019/11/05 02:51:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_code' in 'order clause'. The SQL statement executed was: SELECT * FROM `account` `t` ORDER BY student_code LIMIT 15.
-2019/11/05 02:51:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_code' in 'order clause'' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbCommand.php:543
-Stack trace:
-#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
-#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
-#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
-#3 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(66): CActiveRecord->findAll(Object(CDbCriteria))
-#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(59): BaseController->_list(Object(AccountInformation), Object(CDbCriteria), 'index', Array)
-#5 [internal function]: AccountInformationController->actionIndex('')
-#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
-#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
-#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
-#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
-#13 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#14 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
-#15 {main}
-REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=InventoryInformation/index
 HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
 ---
