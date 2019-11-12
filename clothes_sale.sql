@@ -1,209 +1,188 @@
-/*
-SQLyog Ultimate v12.08 (64 bit)
-MySQL - 5.5.62 : Database - clothes_sale
-*********************************************************************
-*/
+DROP DATABASE if EXISTS clothes_sale;#建库
+CREATE DATABASE clothes_sale;
+USE clothes_sale;
 
-/*!40101 SET NAMES utf8 */;
+CREATE TABLE staff_message(#员工信息
+	staff_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	staff_no VARCHAR(32) NOT NULL UNIQUE,#员工编码
+	staff_name VARCHAR(32) NOT NULL UNIQUE,#员工姓名
+	staff_log_name VARCHAR(24) NOT NULL,#员工登录名
+	staff_password VARCHAR(64) NOT NULL,#员工登录密码
+	staff_permissions INT DEFAULT 0 NOT NULL,#员工权限，0无权限，1仓库管理，2销售管理，3财务管理，4权限管理
+	gender int DEFAULT 0 NOT NULL,#员工性别，0男，1女
+	telephone VARCHAR(15) DEFAULT '',#员工联系号码
+	address VARCHAR(64) NOT NULL,#员工住址
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(staff_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*!40101 SET SQL_MODE=''*/;
+-- 添加默认员工
+INSERT INTO staff_message(staff_no, staff_name, staff_log_name, staff_password, staff_permissions, gender, telephone, address) VALUES
+('2019qweasdzxc123','李丽', 'Lily', 'lili1234', 0, 1, '', '中山大道东'),
+('2019qweasdzxc124','周粥', 'Zhou', 'zhou1234', 1, 0, '', '中山大道南'),
+('2019qweasdzxc125','陈辰', 'Chen', 'chen1234', 2, 1, '', '中山大道西'),
+('2019qweasdzxc126','章张', 'Zhang', 'zhang1234', 2, 0, '', '中山大道北'),
+('2019qweasdzxc127','吕旅', 'Luly', 'lv1234', 3, 1, '', '中山大道中'),
+('2019qweasdzxc128','工头', 'admin', 'admin', 4, 1, '', '中山大道');
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`clothes_sale` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `clothes_sale`;
+CREATE TABLE custom(#顾客信息
+	custom_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	custom_no VARCHAR(32) NOT NULL UNIQUE,#顾客编码
+	custom_name VARCHAR(32) NOT NULL,#顾客姓名
+	telephone VARCHAR(15) DEFAULT '',#顾客联系号码
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(custom_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `account` */
+-- 添加默认顾客
+INSERT INTO custom(custom_no, custom_name, telephone) VALUES
+('qweasdzxc123', '张三', '1301123311'),
+('qweasdzxc124', '李四', '1301123322'),
+('qweasdzxc125', '王五', '1301123344');
 
-DROP TABLE IF EXISTS `account`;
 
-CREATE TABLE `account` (
-  `account_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `account_no` varchar(32) NOT NULL,
-  `purchase_id` int(11) NOT NULL,
-  `account_type` int(11) NOT NULL,
-  `sell_id` int(11) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY `account_id` (`account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE goods_type(#商品类型
+	type_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	type_name VARCHAR(64) NOT NULL,#商品类型名
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(type_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `account` */
+-- 添加默认商品
+INSERT INTO goods_type(type_name) VALUES
+('T恤'), ('裤子'), ('裙子'), ('衬衫');
 
-/*Table structure for table `customer` */
+CREATE TABLE supplier(#供应商信息
+	supplier_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	supplier_no VARCHAR(32) NOT NULL UNIQUE,#供应商编码
+	supplier_name VARCHAR(64) NOT NULL,#供应商名称
+	address VARCHAR(64) NOT NULL,#供应商地址
+	contact VARCHAR(32) NOT NULL,#供应商联系人
+	telephone VARCHAR(15) NOT NULL,#供应商联系号码
+	remark TEXT,#备注
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(supplier_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `customer`;
+-- 添加默认供应商
+INSERT INTO supplier(supplier_no, supplier_name, address, contact, telephone, remark) VALUES
+('2017123asdzxc', '广州裤子厂', '中山大道东', '郑正', '13011221234', '生产长裤'),
+('2017123asdzxd', '广州毛衣厂', '中山大道南', '刘留', '13012321234', ''),
+('2017123asdzxe', '广州裙子厂', '中山大道西', '朱珠', '13013421234', '生产裙子'),
+('2017123asdzxf', '广州衬衫厂', '中山大道北', '罗螺', '13014521234', ''),
+('2017123asdzxg', '广州布料厂', '中山大道中', '杨羊', '13015621234', '万能厂家');
 
-CREATE TABLE `customer` (
-  `cus_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cus_no` varchar(32) NOT NULL,
-  `cus_name` varchar(32) NOT NULL,
-  `telephone` varchar(11) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`cus_id`),
-  UNIQUE KEY `cus_id` (`cus_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `customer` */
+CREATE TABLE goods_message(#商品基本信息
+	goods_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	goods_no VARCHAR(32) NOT NULL UNIQUE,#商品编码
+	supplier_id INT(10) UNSIGNED NOT NULL,#供应商id
+	type_id INT(10) UNSIGNED NOT NULL,#商品类型id
+	goods_name VARCHAR(64) NOT NULL,#商品名称
+	metarial VARCHAR(32) NOT NULL,#商品材质
+	remark TEXT,#备注
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(goods_id),
+	FOREIGN KEY(supplier_id) REFERENCES supplier(supplier_id),
+	FOREIGN KEY(type_id) REFERENCES goods_type(type_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `goods_detial` */
 
-DROP TABLE IF EXISTS `goods_detial`;
+CREATE TABLE goods_detail(#商品款式信息
+	detail_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	detail_no VARCHAR(32) NOT NULL UNIQUE,#商品款式编码
+	goods_id INT(10) UNSIGNED NOT NULL,#商品信息id
+	detail_size VARCHAR(32) NOT NULL,#商品码数
+	detail_color VARCHAR(32) NOT NULL,#商品颜色
+	remark TEXT,#备注
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(detail_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `goods_detial` (
-  `goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `goods_no` varchar(32) NOT NULL,
-  `goods_name` varchar(32) NOT NULL,
-  `supplier_id` int(11) NOT NULL,
-  `type_id` int(11) NOT NULL,
-  `material` varchar(32) DEFAULT NULL,
-  `remark` text,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`goods_id`),
-  UNIQUE KEY `goods_id` (`goods_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `goods_detial` */
+CREATE TABLE purchase(#进货记录
+	purchase_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	purchase_no VARCHAR(32) NOT NULL UNIQUE,#进货编码
+	detail_id INT(10) UNSIGNED NOT NULL,#商品id
+	quantity int NOT NULL,#进货数量
+	total_amount DECIMAL(6, 2) NOT NULL,#进货总支出
+	purchase_date DATETIME NOT NULL,#进货日期
+	operator INT(10) UNSIGNED NOT NULL,#进货操作人id
+	remark TEXT,#备注
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(purchase_id),
+	FOREIGN KEY(detail_id) REFERENCES goods_detail(detail_id),
+	FOREIGN KEY(operator) REFERENCES staff_message(staff_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `goods_type` */
 
-DROP TABLE IF EXISTS `goods_type`;
+CREATE TABLE saller_sales(#销售订单信息
+	sell_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	sell_no VARCHAR(32) NOT NULL UNIQUE,#销售订单编码
+	operator INT(10) UNSIGNED NOT NULL,#销售员id
+	custom_id INT(10) UNSIGNED NOT NULL,#顾客id
+	amount DECIMAL(6, 2) NOT NULL,#销售总金额
+	sell_date DATETIME NOT NULL,#销售日期
+	cerated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(sell_id),
+	FOREIGN KEY(operator) REFERENCES staff_message(staff_id),
+	FOREIGN KEY(custom_id) REFERENCES custom(custom_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `goods_type` (
-  `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `type_name` varchar(32) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`type_id`),
-  UNIQUE KEY `type_id` (`type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE sell_detail(#订单项目信息/销售订单每项内容
+	detail_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	detail_no VARCHAR(32) NOT NULL UNIQUE,#订单编码
+	sell_id INT(10) UNSIGNED NOT NULL,#销售订单id
+	goods_id INT(10) UNSIGNED NOT NULL,#商品id
+	quantity INT NOT NULL,#商品数量
+	price DECIMAL(6,2) NOT NULL,#商品单价
+	amount DECIMAL(6,2) NOT NULL,#订单总金额
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(detail_id),
+	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
+	FOREIGN KEY(goods_id) REFERENCES goods_message(goods_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `goods_type` */
 
-/*Table structure for table `inventory` */
+CREATE TABLE sell_return(#退货记录/退货信息
+	return_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	return_no VARCHAR(32) NOT NULL UNIQUE,#
+	detail_id INT(10) UNSIGNED NOT NULL,#销售订单详细信息id
+	reason VARCHAR(128) NOT NULL,#退货原因
+	return_date DATETIME NOT NULL,#退货日期
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(return_id),
+	FOREIGN KEY(detail_id) REFERENCES sell_detail(detail_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `inventory`;
+CREATE VIEW inventory #库存
+AS SELECT
+	table_in.detail_id AS detail_id, #商品详细信息id
+	table_in.amount AS purchase_quantity, # 进货总数量
+	COALESCE(table_out.amount, 0) AS sell_quantity, #销售总数量
+	COALESCE(table_out.amount, 0) AS return_quantity, #退货总数量
+	COALESCE((table_in.amount - table_out.amount + table_back.amount), COALESCE(table_in.amount - table_out.amount, table_in.amount)) as quantity #库存数量
+FROM (SELECT detail_id, sum(quantity) amount from purchase GROUP by detail_id) table_in left join
+	(SELECT detail_id, sum(quantity) amount from sell_detail GROUP by detail_id) table_out
+		on table_in.detail_id = table_out.detail_id 
+			left join 
+			(select sell_detail.goods_id AS detail_id, sum(sell_detail.quantity) amount from sell_detail, sell_return WHERE sell_detail.detail_id=sell_return.detail_id GROUP by sell_detail.goods_id) table_back
+	    	on table_back.detail_id = table_in.detail_id;
+	    
+CREATE TABLE account(#账目信息
+	account_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	account_no VARCHAR(32) NOT NULL UNIQUE,#账目编码
+	purchase_id INT(10) UNSIGNED NULL,#进货信息id
+	sell_id INT(10) UNSIGNED NULL,#销售订单id
+	return_id INT(10) UNSIGNED NULL,#退货信息id
+	account_type int DEFAULT 0,#账目类型，0进货，1售货，2退货
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY(purchase_id) REFERENCES purchase(purchase_id),
+	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
+	FOREIGN KEY(return_id) REFERENCES sell_return(return_id),
+	PRIMARY KEY(account_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `inventory` (
-  `inventory_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `goods_id` int(11) NOT NULL,
-  `inventory_amount` int(11) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY `inventory_id` (`inventory_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `inventory` */
-
-/*Table structure for table `inventory_style` */
-
-DROP TABLE IF EXISTS `inventory_style`;
-
-CREATE TABLE `inventory_style` (
-  `style_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `style` varchar(32) NOT NULL,
-  `inven_style_amount` int(11) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY `style_id` (`style_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `inventory_style` */
-
-/*Table structure for table `purchase` */
-
-DROP TABLE IF EXISTS `purchase`;
-
-CREATE TABLE `purchase` (
-  `purchase_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `purchase_no` varchar(32) NOT NULL,
-  `goods_no` varchar(32) NOT NULL,
-  `supplier_id` int(11) NOT NULL,
-  `staff_id` int(11) NOT NULL,
-  `purchase_date` datetime DEFAULT NULL,
-  `remark` text,
-  `quantity` int(11) NOT NULL,
-  `total_amount` decimal(5,2) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`purchase_id`),
-  UNIQUE KEY `purchase_id` (`purchase_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `purchase` */
-
-/*Table structure for table `saller_return` */
-
-DROP TABLE IF EXISTS `saller_return`;
-
-CREATE TABLE `saller_return` (
-  `return_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `sell_id` int(11) NOT NULL,
-  `return_date` datetime DEFAULT NULL,
-  `reason` varchar(100) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY `return_id` (`return_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `saller_return` */
-
-/*Table structure for table `saller_sales` */
-
-DROP TABLE IF EXISTS `saller_sales`;
-
-CREATE TABLE `saller_sales` (
-  `sell_no` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `staff_id` int(11) NOT NULL,
-  `cus_id` int(11) NOT NULL,
-  `sell_id` int(11) NOT NULL,
-  `sell_date` datetime DEFAULT NULL,
-  `amount` decimal(5,2) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`sell_id`),
-  UNIQUE KEY `sell_no` (`sell_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `saller_sales` */
-
-/*Table structure for table `staff_message` */
-
-DROP TABLE IF EXISTS `staff_message`;
-
-CREATE TABLE `staff_message` (
-  `staff_no` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `staff_id` varchar(32) NOT NULL,
-  `staff_name` varchar(32) NOT NULL,
-  `staff_log_name` varchar(24) NOT NULL,
-  `staff_password` varchar(24) NOT NULL,
-  `gender` int(11) DEFAULT NULL,
-  `telephone` varchar(20) DEFAULT NULL,
-  `address` varchar(64) NOT NULL,
-  `staff_permissions` int(11) DEFAULT '0',
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`staff_id`),
-  UNIQUE KEY `staff_no` (`staff_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `staff_message` */
-
-/*Table structure for table `supplier` */
-
-DROP TABLE IF EXISTS `supplier`;
-
-CREATE TABLE `supplier` (
-  `supplier_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `supplier_no` varchar(32) NOT NULL,
-  `supplier_name` varchar(32) NOT NULL,
-  `contact` varchar(32) NOT NULL,
-  `telephone` varchar(11) DEFAULT NULL,
-  `address` varchar(32) NOT NULL,
-  `remark` text,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`supplier_id`),
-  UNIQUE KEY `supplier_id` (`supplier_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `supplier` */
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+CREATE USER 'clothed_root'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL ON clothes_sale.* TO 'clothed_root'@'localhost';
