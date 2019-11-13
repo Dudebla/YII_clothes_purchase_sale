@@ -16,8 +16,8 @@ $st="";
     array(
         '销售管理',
         array(
-            'award_index41' => array('销售记录', 'SalesRecord/index'),
-            'award_index42' => array('退货信息', 'ReturnRecord/index'),
+            'award_index41' => array('销售记录', 'SalesRecords/index'),
+            'award_index42' => array('退货信息', 'ReturnRecords/index'),
             'award_index43' => array('客户信息', 'CustomerInformation/index'),
         )
     ),
