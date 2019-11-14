@@ -60,7 +60,7 @@ class AccountInformationController extends BaseController {
         }
         $criteria->order = 'account_no';
         $data = array();
-        parent::_list($model, $criteria, 'index', $data);
+        parent::_list($model, $criteria, 'AccountInformation/index', $data);
     }
 
     // public function getPurchaseMoneyById(){
@@ -71,7 +71,7 @@ class AccountInformationController extends BaseController {
     //         $records=this->hasMany(SellRecords::className(),["sell_id"=>"sell_id"])->asArray()->all();
     //         return $records;
     // }
-    // public function getReturnMoneyById(){
+    // public function getReindexturnMoneyById(){
     //         $records=this->hasMany(ReturnRecords::className(),["return_id"=>"return_id"])->asArray()->all();
     //         return $records;
     // }

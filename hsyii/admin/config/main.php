@@ -36,8 +36,8 @@ $st="";
     array(
         '系统管理',
         array(
-            'award_index41' => array('新增用户', 'NewUser/index'),
-            'award_index42' => array('编辑用户', 'EditUser/index'),            
+            'award_index41' => array('员工信息', 'StaffMessage/index'),
+//            'award_index42' => array('编辑员工', 'EditStaff/index'),
         )
     )        
    
