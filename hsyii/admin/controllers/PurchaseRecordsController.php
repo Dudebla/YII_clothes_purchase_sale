@@ -56,6 +56,6 @@ class PurchaseRecordsController extends BaseController {
         }
         $criteria->order = 'purchase_no';
         $data = array();
-        parent::_list($model, $criteria, 'index', $data);
+        parent::_list($model, $criteria, 'PurchaseRecords/index', $data);
     }
 }

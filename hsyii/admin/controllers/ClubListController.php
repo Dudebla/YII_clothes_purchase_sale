@@ -52,7 +52,7 @@ class ClubListController extends BaseController {
         $criteria = new CDbCriteria;
         $criteria->order = 'club_code';
         $data = array();
-        parent::_list($model, $criteria, 'index', $data);
+        parent::_list($model, $criteria, 'clubList/index', $data);
     }
 
 }
