@@ -29,7 +29,6 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th class="check"><input id="j-checkall" class="input-check" type="checkbox"></th>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
                         <th><?php echo $model->getAttributeLabel('purchase_id');?></th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
@@ -39,8 +38,7 @@
                 <tbody>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 0) {  ?>
-                    <tr>    
-                        <td class="check check-item"><input class="input-check" type="checkbox" value="<?php echo CHtml::encode($v->account_id); ?>"></td>           
+                    <tr>        
                         <td><?php echo $v->account_no; ?></td>
                         <td><?php echo $v->purchase_id; ?></td>
                         <td><?php echo $v->created; ?></td>
@@ -76,7 +74,6 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th class="check"><input id="j-checkall" class="input-check" type="checkbox"></th>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
                         <th><?php echo $model->getAttributeLabel('sell_id');?></th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
@@ -86,13 +83,13 @@
                 <tbody>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 1) {  ?>
-                    <tr>    
-                        <td class="check check-item"><input class="input-check" type="checkbox" value="<?php echo CHtml::encode($v->account_id); ?>"></td>           
+                            <?php $sale_data = SalesRecords::model()->find('sell_id='.$v->sell_id); ?>
+                    <tr>         
                         <td><?php echo $v->account_no; ?></td>
                         <td><?php echo $v->sell_id; ?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
-                            
+                            <?php  echo $sale_data->amount; ?>
                         </td>
                     </tr>
                         <?php  } ?>
@@ -124,7 +121,6 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th class="check"><input id="j-checkall" class="input-check" type="checkbox"></th>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
                         <th><?php echo $model->getAttributeLabel('return_id');?></th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
@@ -134,13 +130,15 @@
                 <tbody>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 2) {  ?>
+                            <?php $return_data = ReturnRecords::model()->find('return_id='.$v->return_id); ?>
+                            <?php  $return_detial_data = SalesDetail::model()->find('detail_id='.$return_data->detail_id); ?>
                     <tr>    
-                        <td class="check check-item"><input class="input-check" type="checkbox" value="<?php echo CHtml::encode($v->account_id); ?>"></td>           
                         <td><?php echo $v->account_no; ?></td>
                         <td><?php echo $v->return_id; ?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
-                           
+                            <?php  echo $return_detial_data->amount; ?>
+
                         </td>
                     </tr>
                         <?php  } ?>

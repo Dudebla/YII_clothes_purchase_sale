@@ -31,7 +31,7 @@ class ReturnRecords extends BaseModel{
      */
     public function relations() {
         return array(
-
+            'salesDetail' => array(self::HAS_ONE, 'SalesDetail', array('detail_id'=>'detail_id')), 
         );
     }
 

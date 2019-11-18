@@ -26,7 +26,7 @@ class SalesRecords extends BaseModel {
      */
     public function relations() {
         return array(
-
+            'account' => array(self::HAS_ONE, 'AccountInformation', 'sell_id'), 
         );
     }
 
