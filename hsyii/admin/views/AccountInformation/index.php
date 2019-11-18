@@ -75,7 +75,8 @@
                 <thead>
                     <tr>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
-                        <th><?php echo $model->getAttributeLabel('sell_id');?></th>
+                        <!-- <th><?php echo $model->getAttributeLabel('sell_id');?></th> -->
+                        <th>销售账单编号</th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
                         <th>金额</th>
                     </tr>
@@ -86,7 +87,9 @@
                             <?php $sale_data = SalesRecords::model()->find('sell_id='.$v->sell_id); ?>
                     <tr>         
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo $v->sell_id; ?></td>
+
+                        <td><?php echo $sale_data->sell_no; ?></td>
+
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $sale_data->amount; ?>

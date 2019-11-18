@@ -359,3 +359,40 @@ Stack trace:
 #8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CWebApplication->run()
 REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=salesRecords/update&sell_id=26
+2019/11/18 14:59:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "NewUser/index"。' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('NewUser/index')
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=NewUser/index
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
+---
+2019/11/18 14:59:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "EditUser/index"。' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('EditUser/index')
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#3 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=EditUser/index
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
+---
+2019/11/18 14:59:46 [error] [exception.CException] exception 'CException' with message 'AccountInformationController 无法找到请求的视图 "AccountInformation/index".' in D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php:881
+Stack trace:
+#0 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(785): CController->renderPartial('AccountInformat...', Array, true)
+#1 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\components\BaseController.php(68): CController->render('AccountInformat...', Array)
+#2 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\admin\controllers\AccountInformationController.php(65): BaseController->_list(Object(AccountInformation), Object(CDbCriteria), 'AccountInformat...', Array)
+#3 [internal function]: AccountInformationController->actionIndex('', '')
+#4 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(AccountInformationController), Array)
+#5 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccountInformationController), Object(ReflectionMethod), Array)
+#6 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(282): CController->run('index')
+#10 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\web\CWebApplication.php(141): CWebApplication->runController('AccountInformat...')
+#11 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 D:\WampServer\wamp64\www\workspace\YII\YII_clothes_purchase_sale\hsyii\index.php(33): CApplication->run()
+#13 {main}
+REQUEST_URI=/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php?r=AccountInformation/index
+HTTP_REFERER=http://localhost:8088/workspace/YII/YII_clothes_purchase_sale/hsyii/index.php
+---

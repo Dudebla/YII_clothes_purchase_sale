@@ -60,28 +60,21 @@ class AccountInformationController extends BaseController {
         }
         $criteria->order = 'account_no';
         $data = array();
-<<<<<<< HEAD
 
         parent::_list($model, $criteria, 'index', $data);
-=======
-        parent::_list($model, $criteria, 'AccountInformation/index', $data);
->>>>>>> 03afe9e715a88bf102ada9ab0eb4b1e26c1d1332
     }
 
     // public function getPurchaseMoneyById(){
     //         $records=this->hasMany(PurchaseRecords::className(),["purchase_id"=>"purchase_id"])->asArray()->all();
     //         return $records;
     // }
-<<<<<<< HEAD
 
     // public function getReturnMoneyById(){
-=======
     // public function getSellMoneyById(){
     //         $records=this->hasMany(SellRecords::className(),["sell_id"=>"sell_id"])->asArray()->all();
     //         return $records;
     // }
     // public function getReindexturnMoneyById(){
->>>>>>> 03afe9e715a88bf102ada9ab0eb4b1e26c1d1332
     //         $records=this->hasMany(ReturnRecords::className(),["return_id"=>"return_id"])->asArray()->all();
     //         return $records;
     // }
