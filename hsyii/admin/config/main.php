@@ -8,9 +8,11 @@ $st="";
     array(
         '进货管理',
         array(
-            'award_index41' => array('进货记录', 'PurchaseRecords/index'),
-            'award_index42' => array('供应商信息', 'SupplierInformation/index'),
-            'award_index43' => array('商品信息', 'GoodsInformation/index'),
+            'award_index41' => array('进货记录', '/PurchaseRecords/index'),
+            'award_index42' => array('供应商信息', '/SupplierInformation/index'),
+            'award_index43' => array('商品详情', '/GoodsDetail/index'),
+            'award_index44' => array('商品信息', '/GoodsInformation/index'),
+            
             ),
        ),
     array(

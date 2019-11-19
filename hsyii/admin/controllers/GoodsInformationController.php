@@ -1,6 +1,6 @@
 <?php
  
-class PurchaseRecordsController extends BaseController {
+class GoodsInformationController extends BaseController {
 
     protected $model = '';
 
@@ -11,19 +11,17 @@ class PurchaseRecordsController extends BaseController {
     }
 
     public function actionDelete($id) {
-       // Yii::app()->request->isPostRequest=TRUE;
-       //$id = $request->post('purchase_id'); 
-       parent::_clear($id);
+        parent::_clear($id);
     }
-      
     
+
     public function actionCreate() {   
         $modelName = $this->model;
         $model = new $modelName('create');
         $data = array();
         if (!Yii::app()->request->isPostRequest) {
             $data['model'] = $model;
-            $this->render('/PurchaseRecords/update', $data);
+            $this->render('/GoodsInformation/update', $data);
         }else{
             $this-> saveData($model,$_POST[$modelName]);
         }
@@ -35,7 +33,7 @@ class PurchaseRecordsController extends BaseController {
         if (!Yii::app()->request->isPostRequest) {
            $data = array();
            $data['model'] = $model;
-           $this->render('/PurchaseRecords/update', $data);
+           $this->render('/GoodsInformation/update', $data);
         } else {
            $this-> saveData($model,$_POST[$modelName]);
         }
@@ -54,10 +52,23 @@ class PurchaseRecordsController extends BaseController {
          $data = $model->findAll();
         $criteria = new CDbCriteria;
         if($keywords!=''){
-            $criteria->addSearchCondition('purchase_no',"$keywords");
+            $criteria->addSearchCondition('goods_no',"$keywords");
         }
-        $criteria->order = 'purchase_no';
+        $criteria->order = 'goods_no';
         $data = array();
-        parent::_list($model, $criteria, '/PurchaseRecords/index', $data);
+        parent::_list($model, $criteria, '/GoodsInformation/index', $data);
+    }
+
+    //查看功能，不能修改
+    public function actionRead($id) {
+        $modelName = $this->model;
+        $model = $this->loadModel($id, $modelName);
+        if (!Yii::app()->request->isPostRequest) {
+           $data = array();
+           $data['model'] = $model;
+           $this->render('/GoodsInformation/read', $data);
+        } else {
+           $this-> saveData($model,$_POST[$modelName]);
+        }
     }
 }

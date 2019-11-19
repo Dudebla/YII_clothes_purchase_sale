@@ -185,4 +185,3 @@ CREATE TABLE account(#账目信息
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE USER 'clothed_root'@'localhost' IDENTIFIED BY '123456';
-GRANT ALL ON clothes_sale.* TO 'clothed_root'@'localhost';

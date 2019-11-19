@@ -1,5 +1,5 @@
 <div class="box">
-    <div class="box-title c"><h1><i class="fa fa-table"></i>进货记录</h1><span class="back"><a class="btn" href="javascript:;" onclick="we.back();"><i class="fa fa-reply"></i>返回</a></span></div><!--box-title end-->
+    <div class="box-title c"><h1><i class="fa fa-table"></i>商品详情</h1><span class="back"><a class="btn" href="javascript:;" onclick="we.back();"><i class="fa fa-reply"></i>返回</a></span></div><!--box-title end-->
     <div class="box-detail">
     <?php  $form = $this->beginWidget('CActiveForm', get_form_list());?>
         <div class="box-detail-tab">
@@ -15,42 +15,36 @@
                     </tr>
                 	
                     <tr>
-                        <td width="30%"><?php echo $form->labelEx($model, 'purchase_no'); ?></td>
+                        <td width="30%"><?php echo $form->labelEx($model, 'detail_no'); ?></td>
                        <td width="30%">
-                            <?php echo $form->textField($model, 'purchase_no', array('class' => 'input-text')); ?>
-                            <?php echo $form->error($model, 'purchase_no
+                            <?php echo $form->textField($model, 'detail_no', array('class' => 'input-text')); ?>
+                            <?php echo $form->error($model, 'detail_no
                             ', $htmlOptions = array()); ?>
                         </td>
                     </tr>
 
                     <tr>
-                        <td width="30%"><?php echo $form->labelEx($model, 'detail_id'); ?></td>
+                        <td width="30%"><?php echo $form->labelEx($model, 'goods_id'); ?></td>
                         <td>
-                             <?php echo $form->dropDownList($model, 'detail_id', CHtml::listdata(GoodsDetail::model()->findAll("id IS NOT NULL"),'id','detail_no'),array('prompt'=>'请选择')); ?>
-                            <?php echo $form->error($model, 'detail_id', $htmlOptions = array()); ?>
+                             <?php echo $form->dropDownList($model, 'goods_id', CHtml::listdata(GoodsInformation::model()->findAll("id IS NOT NULL"),'id','goods_name'),array('prompt'=>'请选择')); ?>
+                            <?php echo $form->error($model, 'goods_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>
 
                    
+                
                     <tr>
-                         <td><?php echo $form->labelEx($model, 'total_amount'); ?></td>
+                         <td><?php echo $form->labelEx($model, 'detail_size'); ?></td>
                         <td>
-                        <?php echo $form->textField($model, 'total_amount', array('class' => 'input-text')); ?>
-                            <?php echo $form->error($model, 'total_amount', $htmlOptions = array()); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                         <td><?php echo $form->labelEx($model, 'quantity'); ?></td>
-                        <td>
-                        <?php echo $form->textField($model, 'quantity', array('class' => 'input-text')); ?>
-                             <?php echo $form->error($model, 'quantity', $htmlOptions = array()); ?>
+                        <?php echo $form->textField($model, 'detail_size', array('class' => 'input-text')); ?>
+                             <?php echo $form->error($model, 'detail_size', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                      <tr>
-                        <td><?php echo $form->labelEx($model, 'purchase_date'); ?></td>
+                        <td><?php echo $form->labelEx($model, 'detail_color'); ?></td>
                         <td>
-                        <?php echo $form->textField($model, 'purchase_date', array('class' => 'input-text')); ?>
-                            <?php echo $form->error($model, 'purchase_date', $htmlOptions = array()); ?>
+                        <?php echo $form->textField($model, 'detail_color', array('class' => 'input-text')); ?>
+                            <?php echo $form->error($model, 'detail_color', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                 </table>
@@ -63,15 +57,15 @@
                       
                     </tr>-->
                     <tr>
-                        <td><?php echo $form->labelEx($model, 'operator'); ?></td>
-                        <td>
-                            <?php echo $form->textField($model, 'operator', array('class' => 'input-text')); ?>
-                            <?php echo $form->error($model, 'operator', $htmlOptions = array()); ?>
+                    	<td><?php echo $form->labelEx($model, 'created'); ?></td>
+                    	<td>
+                            <?php echo $form->textField($model, 'created', array('class' => 'input-text')); ?>
+                            <?php echo $form->error($model, 'created', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                     <tr>
-                    	<td><?php echo $form->labelEx($model, 'remark'); ?></td>
-                    	<td>
+                        <td><?php echo $form->labelEx($model, 'remark'); ?></td>
+                        <td>
                             <?php echo $form->textField($model, 'remark', array('class' => 'input-text')); ?>
                             <?php echo $form->error($model, 'remark', $htmlOptions = array()); ?>
                         </td>
@@ -90,12 +84,12 @@
 </div><!--box end-->
 <script>
     $(function(){
-        var $down_time=$('#<?php echo get_class($model);?>_purchase_date');
+        var $down_time=$('#<?php echo get_class($model);?>_created');
         $down_time.on('click', function(){
         WdatePicker({startDate:'%y-%M-%D 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss'});});
     });
     $(function(){
-        var $down_time=$('#<?php echo get_class($model);?>_detail_no');
+        var $down_time=$('#<?php echo get_class($model);?>_created');
         $down_time.on('click', function(){
         WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd'});});
     });
