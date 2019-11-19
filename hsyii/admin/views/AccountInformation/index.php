@@ -75,7 +75,6 @@
                 <thead>
                     <tr>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
-                        <!-- <th><?php echo $model->getAttributeLabel('sell_id');?></th> -->
                         <th>销售账单编号</th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
                         <th>金额</th>
@@ -125,7 +124,7 @@
                 <thead>
                     <tr>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
-                        <th><?php echo $model->getAttributeLabel('return_id');?></th>
+                        <th>退货账单编号</th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
                         <th>金额</th>
                     </tr>
@@ -137,7 +136,7 @@
                             <?php  $return_detial_data = SalesDetail::model()->find('detail_id='.$return_data->detail_id); ?>
                     <tr>    
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo $v->return_id; ?></td>
+                        <td><?php echo $return_data->return_no; ?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $return_detial_data->amount; ?>
