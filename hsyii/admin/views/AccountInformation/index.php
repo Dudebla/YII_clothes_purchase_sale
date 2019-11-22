@@ -30,7 +30,7 @@
                 <thead>
                     <tr>
                         <th><?php echo $model->getAttributeLabel('account_no');?></th>
-                        <th><?php echo $model->getAttributeLabel('purchase_id');?></th>
+                        <th>进货账单编号</th>
                         <th><?php echo $model->getAttributeLabel('created');?></th>
                         <th>金额</th>
                     </tr>
@@ -38,11 +38,13 @@
                 <tbody>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 0) {  ?>
+                            <?php $purchase_data = PurchaseRecords::model()->find('id='.$v->purchase_id); ?>
                     <tr>        
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo $v->purchase_id; ?></td>
+                        <td><?php echo $purchase_data->purchase_no; ?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
+                            <?php  echo $purchase_data->total_amount; ?>
                         </td>
                     </tr>
                         <?php  } ?>

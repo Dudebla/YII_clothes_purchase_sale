@@ -28,7 +28,7 @@ class AccountInformation extends BaseModel {
         // return array();
          return array( 
             'salesRecords' => array(self::HAS_ONE, 'SalesRecords', array('sell_id'=>'sell_id')), 
-            // 'purchase' => array(self::hasMany, 'purchase', 'purchase_id'), 
+            'purchase' => array(self::HAS_ONE, 'PurchaseRecords', array('purchase_id'=>'id')), 
             'sellReturn' => array(self::HAS_ONE, 'ReturnRecords', array('return_id'=>'return_id')), 
         ); 
 
