@@ -44,14 +44,14 @@
                     <tr>
                         <td><?php echo $form->labelEx($model, 'staff_permissions'); ?></td>
                         <td>
-                            <?php echo $form->dropDownList($model, 'staff_permissions', CHtml::listdata(StaffMessage::model()->findAll("staff_permissions IS NOT NULL"),'staff_permissions','staff_permissions'),array('prompt'=>'请选择')); ?>
+                            <?php echo $form->dropDownList($model, 'staff_permissions', CHtml::listdata(PublicMessage::model()->findAll("permissions IS NOT NULL"),'permissions','permissions'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'staff_permissions', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                     <tr>
                         <td><?php echo $form->labelEx($model, 'gender'); ?></td>
                         <td>
-                            <?php echo $form->dropDownList($model, 'gender', CHtml::listdata(StaffMessage::model()->findAll("gender IS NOT NULL"),'gender','gender'),array('prompt'=>'请选择')); ?>
+                            <?php echo $form->dropDownList($model, 'gender', CHtml::listdata(PublicMessage::model()->findAll("gender IS NOT NULL"),'gender','gender'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'gender', $htmlOptions = array()); ?>
                         </td>
                     </tr>
