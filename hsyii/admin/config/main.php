@@ -39,7 +39,8 @@ $st="";
         '系统管理',
         array(
             'award_index41' => array('员工信息', 'StaffMessage/index'),
-//            'award_index42' => array('编辑员工', 'EditStaff/index'),
+            'award_index42' => array('添加员工', 'StaffMessage/create'),
+            'award_index43' => array('公共信息', 'PublicMessage/index'),
         )
     )        
    
