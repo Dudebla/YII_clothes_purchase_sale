@@ -23,8 +23,8 @@
                 </label>
                 <button class="btn btn-blue" type="submit">筛选</button>
             </form>
-
         </div><!--box-search end-->
+
         <div class="box-table">
             <table class="list">
                 <thead>
@@ -52,6 +52,32 @@
                 </tbody>
             </table>
         </div><!--box-table end -->
+
+        <div class="box-table">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th>总金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <?php $purchase_amount = 0; ?>
+                    <?php foreach($arclist as $v){ ?>
+                        <?php if($v->account_type == 0) {  ?>
+                            <?php $purchase_data = PurchaseRecords::model()->find('id='.$v->purchase_id); ?>
+                            <?php $purchase_amount += $purchase_data->total_amount; ?>
+                        <?php  } ?>
+                    <?php } ?>
+                        <td> <?php echo $purchase_amount  ?></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div><!--box-table end -->
+
+
+
         <!--显示销售账单-->
         <div class="box-search" style="margin-top: 50px;">
             <form action="<?php echo Yii::app()->request->url;?>" method="get">
@@ -101,6 +127,31 @@
                 </tbody>
             </table>
         </div><!--box-table end -->
+
+        <div class="box-table">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th>总金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <?php $sales_amount = 0; ?>
+                    <?php foreach($arclist as $v){ ?>
+                        <?php if($v->account_type == 1) {  ?>
+                            <?php $sell_data = SalesRecords::model()->find('sell_id='.$v->sell_id); ?>
+                            <?php $sales_amount += $sell_data->amount; ?>
+                        <?php  } ?>
+                    <?php } ?>
+                        <td> <?php echo $sales_amount  ?></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div><!--box-table end -->
+
+
         <!--显示退货账单-->
         <div class="box-search" style="margin-top: 50px;">
             <form action="<?php echo Yii::app()->request->url;?>" method="get">
@@ -147,6 +198,30 @@
                     </tr>
                         <?php  } ?>
                     <?php } ?>
+                </tbody>
+            </table>
+        </div><!--box-table end -->
+
+                <div class="box-table">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th>总金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <?php $return_amount = 0; ?>
+                    <?php foreach($arclist as $v){ ?>
+                        <?php if($v->account_type == 2) {  ?>
+                            <?php $return_data = ReturnRecords::model()->find('return_id='.$v->return_id); ?>
+                            <?php  $return_detial_data = SalesDetail::model()->find('detail_id='.$return_data->detail_id); ?>
+                            <?php $return_amount += $return_detial_data->amount; ?>
+                        <?php  } ?>
+                    <?php } ?>
+                        <td> <?php echo $return_amount  ?></td>
+                    </tr>
+
                 </tbody>
             </table>
         </div><!--box-table end -->
