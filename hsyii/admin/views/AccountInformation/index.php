@@ -11,15 +11,14 @@
             <form action="<?php echo Yii::app()->request->url;?>" method="get">
                 <input type="hidden" name="r" value="<?php echo Yii::app()->request->getParam('r');?>">
                 <label style="margin-right:10px;">
-                    <span>进货单号：</span>
+                    <span>单号（进货、销售、退货）：</span>
                     <input style="width:200px;" class="input-text" type="text" name="keywords" value="<?php echo Yii::app()->request->getParam('keywords');?>">
                 </label>
                 <button class="btn btn-blue" type="submit">查询</button>
 
                 <label style="margin-right:10px; margin-left: 50px;">
-
                     <span>日期：</span>
-                    <input style="width:150px;"  class="input-text" type="date" value=""/>
+                    <input style="width:150px;"  class="input-text" type="date" name="date"value="<?php echo Yii::app()->request->getParam('date');?>"/>
                 </label>
                 <button class="btn btn-blue" type="submit">筛选</button>
             </form>
@@ -41,7 +40,9 @@
                             <?php $purchase_data = PurchaseRecords::model()->find('id='.$v->purchase_id); ?>
                     <tr>        
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo $purchase_data->purchase_no; ?></td>
+                        <td>
+                            <?php echo CHtml::link($purchase_data->purchase_no, array('/PurchaseRecords/update','id'=>$purchase_data->id));?>
+                        </td>
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $purchase_data->total_amount; ?>
@@ -79,7 +80,7 @@
 
 
         <!--显示销售账单-->
-        <div class="box-search" style="margin-top: 50px;">
+<!--         <div class="box-search" style="margin-top: 50px;">
             <form action="<?php echo Yii::app()->request->url;?>" method="get">
                 <input type="hidden" name="r" value="<?php echo Yii::app()->request->getParam('r');?>">
                 <label style="margin-right:10px;">
@@ -97,7 +98,7 @@
             </form>
 
 
-        </div><!--box-search end-->
+        </div> --><!--box-search end-->
         <div class="box-table">
             <table class="list">
                 <thead>
@@ -114,9 +115,7 @@
                             <?php $sale_data = SalesRecords::model()->find('sell_id='.$v->sell_id); ?>
                     <tr>         
                         <td><?php echo $v->account_no; ?></td>
-
-                        <td><?php echo $sale_data->sell_no; ?></td>
-
+                        <td><?php echo CHtml::link($sale_data->sell_no, array('/SalesRecords/update','sell_id'=>$sale_data->sell_id));?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $sale_data->amount; ?>
@@ -153,7 +152,7 @@
 
 
         <!--显示退货账单-->
-        <div class="box-search" style="margin-top: 50px;">
+<!--         <div class="box-search" style="margin-top: 50px;">
             <form action="<?php echo Yii::app()->request->url;?>" method="get">
                 <input type="hidden" name="r" value="<?php echo Yii::app()->request->getParam('r');?>">
                 <label style="margin-right:10px;">
@@ -171,7 +170,7 @@
             </form>
 
 
-        </div><!--box-search end-->
+        </div> --><!--box-search end-->
         <div class="box-table">
             <table class="list">
                 <thead>
@@ -189,7 +188,7 @@
                             <?php  $return_detial_data = SalesDetail::model()->find('detail_id='.$return_data->detail_id); ?>
                     <tr>    
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo $return_data->return_no; ?></td>
+                        <td><?php echo CHtml::link($return_data->return_no, array('/ReturnRecords/update','return_id'=>$return_data->return_id));?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $return_detial_data->amount; ?>

@@ -56,4 +56,5 @@ class PublicMessageController extends BaseController{
         $data = array();
         parent::_list($model, $criteria, '/PublicMessage/index', $data);
     }
+
 }
