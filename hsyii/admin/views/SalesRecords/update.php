@@ -23,14 +23,14 @@
                     <tr>
                         <td><?php echo $form->labelEx($model, 'operator'); ?></td>
                         <td>
-                            <?php echo $form->textField($model, 'operator', array('class' => 'input-text')); ?>
+                            <?php echo $form->dropDownList($model, 'operator', CHtml::listdata(StaffMessage::model()->findAll("staff_id IS NOT NULL"),'staff_id','staff_id'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'operator', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                     <tr>
                         <td><?php echo $form->labelEx($model, 'custom_id'); ?></td>
                         <td>
-                            <?php echo $form->textField($model, 'custom_id', array('class' => 'input-text')); ?>
+                            <?php echo $form->dropDownList($model, 'custom_id', CHtml::listdata(CustomerInformation::model()->findAll("custom_id IS NOT NULL"),'custom_id','custom_id'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'custom_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>

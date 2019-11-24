@@ -8,12 +8,12 @@ class SalesRecordsController extends BaseController{
         //dump(Yii::app()->request->isPostRequest);
     }
 
-    public function actiontodetail($sell_id){
-        $this->redirect(array('/SalesDetail/index1','sellid'=>$sell_id,'keywords'=>''));
+    public function actiontodetail($id){
+        $this->redirect(array('/SalesDetail/index1','sellid'=>$id,'keywords'=>''));
     }
 
-    public function actionDelete($sell_id) {
-        parent::_clear($sell_id);
+    public function actionDelete($id) {
+        parent::_clear($id);
     }
 
     // public function actionCreate() {
@@ -62,15 +62,15 @@ class SalesRecordsController extends BaseController{
         }
     }
 
-    public function actionUpdate($sell_id) {
+    public function actionUpdate($id) {
         $modelName = $this->model;
-        $model = $this->loadModel($sell_id, $modelName);
+        $model = $this->loadModel($id, $modelName);
 
 
         if (!Yii::app()->request->isPostRequest) {
             $data = array();
             $data['model'] = $model;
-            $data['account'] = AccountInformation::model()->findAll('sell_id='.$model->sell_id.'');
+            $data['account'] = AccountInformation::model()->findAll('sell_id='.$model->id.'');
 
             $this->render('/SalesRecords/update', $data);
         } else {
@@ -83,7 +83,7 @@ class SalesRecordsController extends BaseController{
 
         $sv = $model->save();
 
-        $this->saveAccount($modelAccount,$model->sell_id);
+        $this->saveAccount($modelAccount,$model->id);
 
         show_status($sv,'保存成功', get_cookie('_currentUrl_'),'保存失败');
     }
@@ -95,10 +95,10 @@ class SalesRecordsController extends BaseController{
 
 
     //保存账单记录
-    public function saveAccount($modelAccount,$sell_id){
-        $model = SalesRecords::model()->find('sell_id='.$sell_id);      
+    public function saveAccount($modelAccount,$id){
+        $model = SalesRecords::model()->find('id='.$id);      
         $modelAccount->account_no = "ACCOUNT".$this->findNum($model->sell_no);
-        $modelAccount->sell_id = $model->sell_id;
+        $modelAccount->sell_id = $model->id;
         $modelAccount->account_type = 1;
         $modelAccount->created = $model->created;
         $sv = $modelAccount->save();

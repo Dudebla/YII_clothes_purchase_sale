@@ -58,7 +58,7 @@ class AccountInformationController extends BaseController {
         if($date!=''){
             $criteria->addSearchCondition('created',"$date");
         }
-        $criteria->order = 'account_no';
+        $criteria->order = 'created DESC';
         $data = array();
 
         parent::_list($model, $criteria, 'index', $data);

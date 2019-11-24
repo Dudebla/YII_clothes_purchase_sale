@@ -23,14 +23,14 @@
                     <tr>
                         <td width="30%"><?php echo $form->labelEx($model, 'sell_id'); ?></td>
                         <td width="30%">
-                            <?php echo $form->textField($model, 'sell_id', array('class' => 'input-text')); ?>
-
+                            <?php echo $form->dropDownList($model, 'sell_id', CHtml::listdata(SalesRecords::model()->findAll("id IS NOT NULL"),'id','id'),array('prompt'=>'请选择')); ?>
+                            <?php echo $form->error($model, 'goods_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                     <tr>
                         <td><?php echo $form->labelEx($model, 'goods_id'); ?></td>
                         <td>
-                            <?php echo $form->textField($model, 'goods_id', array('class' => 'input-text')); ?>
+                            <?php echo $form->dropDownList($model, 'goods_id', CHtml::listdata(CustomerInformation::model()->findAll("id IS NOT NULL"),'id','id'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'goods_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>

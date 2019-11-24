@@ -15,8 +15,8 @@ class SalesDetailController extends BaseController{
         $this->redirect(array('/SalesRecords/index','keywords'=>''));
     }
 
-    public function actionDelete($detail_id) {
-        parent::_clear($detail_id);
+    public function actionDelete($id) {
+        parent::_clear($id);
     }
 
     public function actionCreate() {
@@ -31,9 +31,9 @@ class SalesDetailController extends BaseController{
         }
     }
 
-    public function actionUpdate($detail_id) {
+    public function actionUpdate($id) {
         $modelName = $this->model;
-        $model = $this->loadModel($detail_id, $modelName);
+        $model = $this->loadModel($id, $modelName);
         if (!Yii::app()->request->isPostRequest) {
             $data = array();
             $data['model'] = $model;

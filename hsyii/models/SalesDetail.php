@@ -36,7 +36,7 @@ class SalesDetail extends BaseModel{
      */
     public function attributeLabels() {
         return array(
-            'detail_id' => '销售详情ID',
+            'id' => 'ID',
             'detail_no' => '订单编码',
             'sell_id' => '销售订单ID',
             'goods_id' => '商品ID',

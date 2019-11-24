@@ -10,8 +10,8 @@ class CustomerInformationController extends BaseController{
         //dump(Yii::app()->request->isPostRequest);
     }
 
-    public function actionDelete($custom_id) {
-        parent::_clear($custom_id);
+    public function actionDelete($id) {
+        parent::_clear($id);
     }
 
     public function actionCreate() {
@@ -26,9 +26,9 @@ class CustomerInformationController extends BaseController{
         }
     }
 
-    public function actionUpdate($custom_id) {
+    public function actionUpdate($id) {
         $modelName = $this->model;
-        $model = $this->loadModel($custom_id, $modelName);
+        $model = $this->loadModel($id, $modelName);
         if (!Yii::app()->request->isPostRequest) {
             $data = array();
             $data['model'] = $model;

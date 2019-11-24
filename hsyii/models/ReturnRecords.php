@@ -40,7 +40,7 @@ class ReturnRecords extends BaseModel{
      */
     public function attributeLabels() {
         return array(
-            'return_id' => '退货ID',
+            'id' => 'ID',
             'return_no' => '客户编码',
             'detail_id' => '销售订单详细信息ID',
             'reason' => '退货原因',

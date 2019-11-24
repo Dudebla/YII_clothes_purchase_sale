@@ -16,8 +16,8 @@ class ReturnRecordsController extends BaseController{
         //dump(Yii::app()->request->isPostRequest);
     }
 
-    public function actionDelete($return_id) {
-        parent::_clear($return_id);
+    public function actionDelete($id) {
+        parent::_clear($id);
     }
 
     // public function actionCreate() {
@@ -65,13 +65,13 @@ class ReturnRecordsController extends BaseController{
         }
     }
 
-    public function actionUpdate($return_id) {
+    public function actionUpdate($id) {
         $modelName = $this->model;
-        $model = $this->loadModel($return_id, $modelName);
+        $model = $this->loadModel($id, $modelName);
         if (!Yii::app()->request->isPostRequest) {
             $data = array();
             $data['model'] = $model;
-            $data['account'] = AccountInformation::model()->findAll('return_id='.$model->return_id.'');
+            $data['account'] = AccountInformation::model()->findAll('id='.$model->id.'');
             $this->render('/ReturnRecords/update', $data);
         } else {
             $this-> updateData($model,$_POST[$modelName]);
@@ -83,7 +83,7 @@ class ReturnRecordsController extends BaseController{
 
         $sv = $model->save();   
 
-        $this->saveAccount($modelAccount,$model->return_id);        
+        $this->saveAccount($modelAccount,$model->id);        
 
         show_status($sv,'保存成功', get_cookie('_currentUrl_'),'保存失败');
     }
@@ -95,10 +95,10 @@ class ReturnRecordsController extends BaseController{
 
 
     //保存账单记录
-    public function saveAccount($modelAccount,$return_id){
-        $model = ReturnRecords::model()->find('return_id='.$return_id);      
+    public function saveAccount($modelAccount,$id){
+        $model = ReturnRecords::model()->find('return_id='.$id);      
         $modelAccount->account_no = "ACCOUNT".$this->findNum($model->return_no);
-        $modelAccount->return_id = $model->return_id;
+        $modelAccount->return_id = $model->id;
         $modelAccount->account_type = 2;
         $modelAccount->created = $model->created;
         $sv = $modelAccount->save();

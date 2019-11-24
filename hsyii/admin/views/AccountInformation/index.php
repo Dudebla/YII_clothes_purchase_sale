@@ -58,7 +58,7 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th>总金额</th>
+                        <th>进货总金额</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -112,10 +112,10 @@
                 <tbody>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 1) {  ?>
-                            <?php $sale_data = SalesRecords::model()->find('sell_id='.$v->sell_id); ?>
+                            <?php $sale_data = SalesRecords::model()->find('id='.$v->sell_id); ?>
                     <tr>         
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo CHtml::link($sale_data->sell_no, array('/SalesRecords/update','sell_id'=>$sale_data->sell_id));?></td>
+                        <td><?php echo CHtml::link($sale_data->sell_no, array('/SalesRecords/update','id'=>$sale_data->id));?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $sale_data->amount; ?>
@@ -131,7 +131,7 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th>总金额</th>
+                        <th>销售总金额</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -139,7 +139,7 @@
                     <?php $sales_amount = 0; ?>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 1) {  ?>
-                            <?php $sell_data = SalesRecords::model()->find('sell_id='.$v->sell_id); ?>
+                            <?php $sell_data = SalesRecords::model()->find('id='.$v->sell_id); ?>
                             <?php $sales_amount += $sell_data->amount; ?>
                         <?php  } ?>
                     <?php } ?>
@@ -184,11 +184,11 @@
                 <tbody>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 2) {  ?>
-                            <?php $return_data = ReturnRecords::model()->find('return_id='.$v->return_id); ?>
-                            <?php  $return_detial_data = SalesDetail::model()->find('detail_id='.$return_data->detail_id); ?>
+                            <?php $return_data = ReturnRecords::model()->find('id='.$v->return_id); ?>
+                            <?php  $return_detial_data = SalesDetail::model()->find('id='.$return_data->detail_id); ?>
                     <tr>    
                         <td><?php echo $v->account_no; ?></td>
-                        <td><?php echo CHtml::link($return_data->return_no, array('/ReturnRecords/update','return_id'=>$return_data->return_id));?></td>
+                        <td><?php echo CHtml::link($return_data->return_no, array('/ReturnRecords/update','id'=>$return_data->id));?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
                             <?php  echo $return_detial_data->amount; ?>
@@ -205,7 +205,7 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th>总金额</th>
+                        <th>退货总金额</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -213,8 +213,8 @@
                     <?php $return_amount = 0; ?>
                     <?php foreach($arclist as $v){ ?>
                         <?php if($v->account_type == 2) {  ?>
-                            <?php $return_data = ReturnRecords::model()->find('return_id='.$v->return_id); ?>
-                            <?php  $return_detial_data = SalesDetail::model()->find('detail_id='.$return_data->detail_id); ?>
+                            <?php $return_data = ReturnRecords::model()->find('id='.$v->return_id); ?>
+                            <?php  $return_detial_data = SalesDetail::model()->find('id='.$return_data->detail_id); ?>
                             <?php $return_amount += $return_detial_data->amount; ?>
                         <?php  } ?>
                     <?php } ?>

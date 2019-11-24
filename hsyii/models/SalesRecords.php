@@ -35,7 +35,7 @@ class SalesRecords extends BaseModel {
      */
     public function attributeLabels() {
         return array(
-            'sell_id' => '销售ID',
+            'id' => 'ID',
             'sell_no' => '订单编码',
             'operator' => '销售员ID',
             'custom_id' => '客户ID',

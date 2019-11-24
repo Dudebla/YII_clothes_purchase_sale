@@ -23,7 +23,7 @@
                     <tr>
                         <td><?php echo $form->labelEx($model, 'detail_id'); ?></td>
                         <td>
-                            <?php echo $form->textField($model, 'detail_id', array('class' => 'input-text')); ?>
+                            <?php echo $form->dropDownList($model, 'detail_id', CHtml::listdata(SalesDetail::model()->findAll("id IS NOT NULL"),'id','id'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'detail_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>

@@ -31,15 +31,15 @@
                 <tbody>
                 <?php foreach($arclist as $v){ ?>
                     <tr>
-                        <td class="check check-item"><input class="input-check" type="checkbox" value="<?php echo CHtml::encode($v->return_id); ?>"></td>
-                        <td><?php echo CHtml::link($v->return_no, array('update', 'return_id'=>$v->return_id)); ?></td>
+                        <td class="check check-item"><input class="input-check" type="checkbox" value="<?php echo CHtml::encode($v->id); ?>"></td>
+                        <td><?php echo CHtml::link($v->return_no, array('update', 'return_id'=>$v->id)); ?></td>
                         <td><?php echo $v->detail_id; ?></td>
                         <td><?php echo $v->reason; ?></td>
                         <td><?php echo $v->return_date; ?></td>
                         <td><?php echo $v->created; ?></td>
                         <td>
-                            <a class="btn" href="<?php echo $this->createUrl('update', array('return_id'=>$v->return_id));?>" title="编辑"><i class="fa fa-edit"></i></a>
-                            <a class="btn" href="javascript:;" onclick="we.dele('<?php echo $v->return_id;?>', deleteUrl);" title="删除"><i class="fa fa-trash-o"></i></a>
+                            <a class="btn" href="<?php echo $this->createUrl('update', array('id'=>$v->id));?>" title="编辑"><i class="fa fa-edit"></i></a>
+                            <a class="btn" href="javascript:;" onclick="we.dele('<?php echo $v->id;?>', deleteUrl);" title="删除"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -50,5 +50,5 @@
     </div><!--box-content end-->
 </div><!--box end-->
 <script>
-    var deleteUrl = '<?php echo $this->createUrl('delete', array('return_id'=>'退货ID')); ?>';
+    var deleteUrl = '<?php echo $this->createUrl('delete', array('id'=>'ID')); ?>';
 </script>
