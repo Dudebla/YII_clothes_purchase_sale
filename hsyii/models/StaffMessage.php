@@ -38,7 +38,7 @@ class StaffMessage extends BaseModel
      */
     public function attributeLabels(){
         return array(
-            'staff_id' => '员工ID',
+            'id' => 'ID',
             'staff_no' => '员工编码',
             'staff_name' => '姓名',
             'staff_log_name' => '登录名',

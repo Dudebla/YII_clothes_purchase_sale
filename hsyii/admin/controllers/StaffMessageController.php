@@ -11,8 +11,8 @@ class StaffMessageController extends BaseController {
         //dump(Yii::app()->request->isPostRequest);
     }
 
-    public function actionDelete($staff_id){
-        parent::_clear($staff_id);
+    public function actionDelete($id){
+        parent::_clear($id);
     }
 
     public function actionCreate(){
@@ -28,9 +28,9 @@ class StaffMessageController extends BaseController {
         }
     }
 
-    public function actionUpdate($staff_id) {
+    public function actionUpdate($id) {
         $modelName = $this->model;
-        $model = $this->loadModel($staff_id, $modelName);
+        $model = $this->loadModel($id, $modelName);
         if (!Yii::app()->request->isPostRequest) {
             $data = array();
             $data['model'] = $model;

@@ -20,7 +20,6 @@
                 <thead>
                 <tr>
                     <th class="check"><input id="j-checkall" class="input-check" type="checkbox"></th>
-                    <th><?php echo $model->getAttributeLabel('id');?></th>
                     <th><?php echo $model->getAttributeLabel('gender');?></th>
                     <th><?php echo $model->getAttributeLabel('permissions');?></th>
                     <th>操作</th>
@@ -30,9 +29,8 @@
                 <?php foreach($arclist as $v){ ?>
                     <tr>
                         <td class="check check-item"><input class="input-check" type="checkbox" value="<?php echo CHtml::encode($v->id); ?>"></td>
-                        <td><?php echo CHtml::link($v->id, array('update', 'id'=>$v->id)); ?></td>
                         <td><?php echo $v->gender; ?></td>
-                        <td><?php echo $v->permission; ?></td>
+                        <td><?php echo $v->permissions; ?></td>
                         <td>
                             <a class="btn" href="<?php echo $this->createUrl('update', array('id'=>$v->id));?>" title="编辑"><i class="fa fa-edit"></i></a>
                             <a class="btn" href="javascript:;" onclick="we.dele('<?php echo $v->id;?>', deleteUrl);" title="删除"><i class="fa fa-trash-o"></i></a>

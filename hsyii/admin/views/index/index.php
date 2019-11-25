@@ -18,6 +18,18 @@
     <?php $cs->registerScriptFile(Yii::app()->request->baseUrl.'/static/admin/js/jquery.js', CClientScript::POS_END);?>
     <?php $cs->registerScriptFile(Yii::app()->request->baseUrl.'/static/admin/js/jquery.nicescroll.js', CClientScript::POS_END);?>
     <?php $cs->registerScriptFile(Yii::app()->request->baseUrl.'/static/admin/js/index.js', CClientScript::POS_END);?>
+    <?php
+    function staffPermissionsCheck(){
+        $staff_permissions = "无权限";
+        switch (Yii::app()->session['islogin']){
+            case "无权限":
+                break;
+            default:
+                $staff_permissions = Yii::app()->session['islogin'];
+        }
+        return $staff_permissions;
+    }
+    ?>
 </head>
 <body>
 <div class="wrapper">
@@ -36,22 +48,65 @@
     <div class="container">
         <div class="container-left">
             <div class="subnav">
-                <?php foreach(Yii::app()->params['buyer'] as $v){?>
-                <div class="subnav-hd"><a href="javascript:;"><i class="fa fa-angle-down"></i><?php echo $v[0];?></a></div>
-                <ul class="subnav-bd">
-                    <?php //dump($v);exit;?>
-                    <?php foreach($v as $v_item){?>
-                        <?php if(is_array($v_item)){?>
-                            <?php foreach($v_item as $v_subitem){?>
-                                <?php if(count($v_subitem)>1){?>
-                                    <li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe">
-                                        <?php echo $v_subitem[0];?></a></li>
+                <?php $code = staffPermissionsCheck()?>
+                <?php if($code == "仓库管理"){?>
+                    <?php foreach(Yii::app()->params['buyer'] as $v){?>
+                        <div class="subnav-hd"><a href="javascript:;"><i class="fa fa-angle-down"></i><?php echo $v[0];?></a></div>
+                        <ul class="subnav-bd">
+                            <?php //dump($v);exit;?>
+                            <?php foreach($v as $v_item){?>
+                                <?php if(is_array($v_item)){?>
+                                    <?php foreach($v_item as $v_subitem){?>
+                                        <?php if(count($v_subitem)>1){?><li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe"><?php echo $v_subitem[0];?></a></li><?php }?>
+                                    <?php }?>
                                 <?php }?>
                             <?php }?>
-                        <?php }?>
+                        </ul><!--subnav-bd end-->
                     <?php }?>
-                </ul><!--subnav-bd end-->             
+                <?php }else if($code == "销售管理"){?>
+                    <?php foreach(Yii::app()->params['seller'] as $v){?>
+                        <div class="subnav-hd"><a href="javascript:;"><i class="fa fa-angle-down"></i><?php echo $v[0];?></a></div>
+                        <ul class="subnav-bd">
+                            <?php //dump($v);exit;?>
+                            <?php foreach($v as $v_item){?>
+                                <?php if(is_array($v_item)){?>
+                                    <?php foreach($v_item as $v_subitem){?>
+                                        <?php if(count($v_subitem)>1){?><li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe"><?php echo $v_subitem[0];?></a></li><?php }?>
+                                    <?php }?>
+                                <?php }?>
+                            <?php }?>
+                        </ul><!--subnav-bd end-->
+                    <?php }?>
+                <?php }else if($code == "财务管理"){?>
+                    <?php foreach(Yii::app()->params['accounter'] as $v){?>
+                        <div class="subnav-hd"><a href="javascript:;"><i class="fa fa-angle-down"></i><?php echo $v[0];?></a></div>
+                        <ul class="subnav-bd">
+                            <?php //dump($v);exit;?>
+                            <?php foreach($v as $v_item){?>
+                                <?php if(is_array($v_item)){?>
+                                    <?php foreach($v_item as $v_subitem){?>
+                                        <?php if(count($v_subitem)>1){?><li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe"><?php echo $v_subitem[0];?></a></li><?php }?>
+                                    <?php }?>
+                                <?php }?>
+                            <?php }?>
+                        </ul><!--subnav-bd end-->
+                    <?php }?>
+                <?php }else if($code== "权限管理"){?>
+                    <?php foreach(Yii::app()->params['administrator'] as $v){?>
+                        <div class="subnav-hd"><a href="javascript:;"><i class="fa fa-angle-down"></i><?php echo $v[0];?></a></div>
+                        <ul class="subnav-bd">
+                            <?php //dump($v);exit;?>
+                            <?php foreach($v as $v_item){?>
+                                <?php if(is_array($v_item)){?>
+                                    <?php foreach($v_item as $v_subitem){?>
+                                        <?php if(count($v_subitem)>1){?><li><a href="<?php echo $this->createUrl($v_subitem[1]);?>" target="container-iframe"><?php echo $v_subitem[0];?></a></li><?php }?>
+                                    <?php }?>
+                                <?php }?>
+                            <?php }?>
+                        </ul><!--subnav-bd end-->
+                    <?php }?>
                 <?php }?>
+
             </div><!--subnav end-->
         </div><!--container-left end-->
         <div class="container-right">

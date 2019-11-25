@@ -94,9 +94,9 @@
         <?php $this->endWidget(); ?>
     </div><!--box-detail end-->
 </div><!--box end-->
-<!--<script>-->
-<!--    $(function(){-->
-<!--    var $down_time=$('#<?php echo get_class($model);?>_created');
+<script>
+    $(function(){
+    var $down_time=$('#<?php echo get_class($model);?>_created');
         $down_time.on('click', function(){
             WdatePicker({startDate:'%y-%M-%D 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss'});});
     });
@@ -105,4 +105,4 @@
         $down_time.on('click', function(){
             WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd'});});
     });
-</script>-->
+</script>
