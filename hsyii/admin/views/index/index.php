@@ -30,6 +30,15 @@
         return $staff_permissions;
     }
     ?>
+    <?php
+    function staffName(){
+        $staff_name = "";
+        if(Yii::app()->session['staff_name'] != ""){
+            $staff_name = Yii::app()->session['staff_name'];
+        }
+        return $staff_name;
+    }
+    ?>
 </head>
 <body>
 <div class="wrapper">
@@ -38,7 +47,7 @@
         <a class="btn-menu" href="#"><i class="fa fa-reorder"></i></a>
         <ul class="nav">
             <li ><a href="#">衣服进销存管理系统</a></li>            
-            <li><a href="<?php echo SITE_PATH;?>/" target="_blank"> <span>操作員：;?></span></a></li>
+            <li><a href="<?php echo SITE_PATH;?>/" target="_blank"> <span>操作員：<?php echo staffName();?></span></a></li>
         </ul><!--nav end-->
         <ul class="tool">
             <li><a href="<?php echo SITE_PATH;?>/" target="_blank"><i class="fa fa-home"></i> <span>網站首頁</span></a></li>

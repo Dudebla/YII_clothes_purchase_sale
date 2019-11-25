@@ -47,6 +47,7 @@ class IndexController extends BaseController
         $model = StaffMessage::model()->find("staff_log_name='" . $staff_log_name . "'");
         if (isset($model->staff_password) && $model->staff_password == $_REQUEST['staff_password']) {
             Yii::app()->session['islogin'] = $model->staff_permissions;
+            Yii::app()->session['staff_name'] = $model->staff_name;
             $data['staff_log_name'] = $staff_log_name;
         }
         echo CJSON::encode($data);

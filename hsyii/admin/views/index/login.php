@@ -53,10 +53,9 @@ function login() {
         dataType: 'json',
         success: function(data) {
             if (data.staff_log_name == "") {
-                console.log($("#StaffMessage_staff_log_name").val());
                 alert("密码不正确");
             } else {
-                window.location.href = '/hsyii';
+                window.location.href = '/YII_clothes_purchase_sale/hsyii';
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

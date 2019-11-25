@@ -56,5 +56,5 @@
     </div><!--box-content end-->
 </div><!--box end-->
 <script>
-    var deleteUrl = '<?php echo $this->createUrl('delete', array('id'=>'员工ID')); ?>';
+    var deleteUrl = '<?php echo $this->createUrl('delete', array('id'=>'ID')); ?>';
 </script>
