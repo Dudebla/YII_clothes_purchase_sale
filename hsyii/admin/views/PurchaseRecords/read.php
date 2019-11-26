@@ -87,7 +87,7 @@
             
         </div><!--box-detail-bd end-->
         
-        <div class="box-detail-submit"><button onclick="submitType='baocun'" class="btn btn-blue" type="submit">保存</button><button class="btn" type="button" onclick="we.back();">取消</button></div>
+  <!--在update 基础上面 去掉按钮-->
        
     <?php $this->endWidget(); ?>
     </div><!--box-detail end-->

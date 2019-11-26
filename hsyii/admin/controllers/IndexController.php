@@ -43,12 +43,17 @@ class IndexController extends BaseController
         $data['staff_log_name'] = '';
         if (isset($_REQUEST['staff_log_name'])) {
             $staff_log_name = $_REQUEST['staff_log_name'];
+        
         }
         $model = StaffMessage::model()->find("staff_log_name='" . $staff_log_name . "'");
         if (isset($model->staff_password) && $model->staff_password == $_REQUEST['staff_password']) {
             Yii::app()->session['islogin'] = $model->staff_permissions;
             Yii::app()->session['staff_name'] = $model->staff_name;
+          
             $data['staff_log_name'] = $staff_log_name;
+
+            //记录登录账户的职员id 
+           Yii::app()->session['id']=$model->staff_id;
         }
         echo CJSON::encode($data);
     }

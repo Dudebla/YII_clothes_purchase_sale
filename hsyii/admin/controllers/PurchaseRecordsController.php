@@ -131,4 +131,19 @@ class PurchaseRecordsController extends BaseController {
         }
         return $result;
     }
+
+
+    //查看功能，不能修改
+    public function actionRead($id) {
+        $modelName = $this->model;
+        $model = $this->loadModel($id, $modelName);
+        if (!Yii::app()->request->isPostRequest) {
+           $data = array();
+           $data['model'] = $model;
+           $this->render('/PurchaseRecords/read', $data);
+        } else {
+           $this-> saveData($model,$_POST[$modelName]);
+        }
+    }
+
 }
