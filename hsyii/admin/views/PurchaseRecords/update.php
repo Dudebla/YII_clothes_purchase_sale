@@ -59,19 +59,19 @@
                 	<tr class="table-title">
                     	<td colspan="2">其他信息</td>
                     </tr>
-                   <!--<tr>
-                      
-                    </tr>-->
 
+                   <!--<tr>
+                    
+                    </tr>-->
+                    
                     <tr>
-                        <td width="30%"><?php echo $form->labelEx($model, 'operator'); ?></td>
-                        <!--修改为下拉的列表，显示默认的职员id，不允许修改id-->
-                        <td>
-                             <?php echo $form->dropDownList($model, 'operator',array(Yii::app()->session['id']));?>
+                    	<td><?php echo $form->labelEx($model, 'operator'); ?></td>
+                    	<td>
+                        <?php $staff_ID = Yii::app()->session['id']; ?>
+                        <?php echo $form->dropDownList($model, 'operator',array($staff_ID=>$staff_ID)); ?>
                             <?php echo $form->error($model, 'operator', $htmlOptions = array()); ?>
                         </td>
                     </tr>
-
                     
                     <tr>
                     	<td><?php echo $form->labelEx($model, 'remark'); ?></td>
@@ -103,4 +103,5 @@
         $down_time.on('click', function(){
         WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd'});});
     });
+  
 </script>

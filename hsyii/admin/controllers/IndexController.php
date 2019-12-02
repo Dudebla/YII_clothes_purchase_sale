@@ -53,7 +53,8 @@ class IndexController extends BaseController
             $data['staff_log_name'] = $staff_log_name;
 
             //记录登录账户的职员id 
-           Yii::app()->session['id']=$model->staff_id;
+           Yii::app()->session['id']=$model->id;
+           //$operator_id=$model->staff_id;
         }
         echo CJSON::encode($data);
     }
