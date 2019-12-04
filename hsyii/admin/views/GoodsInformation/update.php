@@ -40,12 +40,11 @@
                             <?php echo $form->error($model, 'supplier_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>
-
                     <tr>
                          <td><?php echo $form->labelEx($model, 'type_id'); ?></td>
-                         <td>
-                             <?php echo $form->dropDownList($model, 'type_id', CHtml::listdata(GoodsType::model()->findAll("type_id IS NOT NULL"),'type_id','type_name'),array('prompt'=>'请选择')); ?>
-                            <?php echo $form->error($model, 'type_id', $htmlOptions = array()); ?>
+                        <td>
+                        <?php echo $form->textField($model, 'type_id', array('class' => 'input-text')); ?>
+                             <?php echo $form->error($model, 'type_id', $htmlOptions = array()); ?>
                         </td>
                     </tr>
                      <tr>

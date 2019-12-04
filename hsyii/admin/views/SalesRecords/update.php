@@ -23,7 +23,7 @@
                     <tr>
                         <td><?php echo $form->labelEx($model, 'operator'); ?></td>
                         <td>
-                            <?php echo $form->dropDownList($model, 'operator', CHtml::listdata(StaffMessage::model()->findAll("id IS NOT NULL"),'id','id'),array('prompt'=>'请选择')); ?>
+                            <?php echo $form->dropDownList($model, 'operator', CHtml::listdata(StaffMessage::model()->findAll("staff_id IS NOT NULL"),'staff_id','staff_id'),array('prompt'=>'请选择')); ?>
                             <?php echo $form->error($model, 'operator', $htmlOptions = array()); ?>
                         </td>
                     </tr>
