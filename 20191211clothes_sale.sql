@@ -131,7 +131,7 @@ CREATE TABLE saller_sales(#销售订单信息
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE sell_detail(#订单项目信息/销售订单每项内容
-	detail_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	detail_no VARCHAR(32) NOT NULL UNIQUE,#订单编码
 	sell_id INT(10) UNSIGNED NOT NULL,#销售订单id
 	goods_id INT(10) UNSIGNED NOT NULL,#商品id
@@ -139,21 +139,21 @@ CREATE TABLE sell_detail(#订单项目信息/销售订单每项内容
 	price DECIMAL(6,2) NOT NULL,#商品单价
 	amount DECIMAL(6,2) NOT NULL,#订单总金额
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(detail_id),
+	PRIMARY KEY(id),
 	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
 	FOREIGN KEY(goods_id) REFERENCES goods_message(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE sell_return(#退货记录/退货信息
-	return_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	return_no VARCHAR(32) NOT NULL UNIQUE,#
 	detail_id INT(10) UNSIGNED NOT NULL,#销售订单详细信息id
 	reason VARCHAR(128) NOT NULL,#退货原因
 	return_date DATETIME NOT NULL,#退货日期
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(return_id),
-	FOREIGN KEY(detail_id) REFERENCES sell_detail(detail_id)
+	PRIMARY KEY(id),
+	FOREIGN KEY(detail_id) REFERENCES sell_detail(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE VIEW inventory #库存
@@ -180,7 +180,7 @@ CREATE TABLE account(#账目信息
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY(purchase_id) REFERENCES purchase(id),
 	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
-	FOREIGN KEY(return_id) REFERENCES sell_return(return_id),
+	FOREIGN KEY(return_id) REFERENCES sell_return(id),
 	PRIMARY KEY(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
