@@ -39,7 +39,7 @@ class AccountInformation extends BaseModel {
      */
     public function attributeLabels() {
         return array(
-            'account_id' => '账单ID',
+            'id' => '账单ID',
              'account_no' => '账单编号',
              'purchase_id' => '进货信息ID',
              'account_type' => '进货类型', //账目类型，0进货，1售货，2退货

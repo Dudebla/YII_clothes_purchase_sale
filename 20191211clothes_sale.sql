@@ -33,7 +33,7 @@ CREATE TABLE custom(#顾客信息
 	telephone VARCHAR(15) DEFAULT '',#顾客联系号码
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(custom_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 -- 添加默认顾客
 INSERT INTO custom(custom_no, custom_name, telephone) VALUES
@@ -47,7 +47,7 @@ CREATE TABLE goods_type(#商品类型
 	type_name VARCHAR(64) NOT NULL,#商品类型名
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(type_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 -- 添加默认商品
 INSERT INTO goods_type(type_name) VALUES
@@ -63,7 +63,7 @@ CREATE TABLE supplier(#供应商信息
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 -- 添加默认供应商
 INSERT INTO supplier(supplier_no, supplier_name, address, contact, telephone, remark) VALUES
@@ -80,13 +80,13 @@ CREATE TABLE goods_message(#商品基本信息
 	supplier_id INT(10) UNSIGNED NOT NULL,#供应商id
 	type_id INT(10) UNSIGNED NOT NULL,#商品类型id
 	goods_name VARCHAR(64) NOT NULL,#商品名称
-	metarial VARCHAR(32) NOT NULL,#商品材质
+	material VARCHAR(32) NOT NULL,#商品材质
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id),
 	FOREIGN KEY(supplier_id) REFERENCES supplier(id),
 	FOREIGN KEY(type_id) REFERENCES goods_type(type_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE goods_detail(#商品款式信息
@@ -98,14 +98,14 @@ CREATE TABLE goods_detail(#商品款式信息
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE purchase(#进货记录
 	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	purchase_no VARCHAR(32) NOT NULL UNIQUE,#进货编码
 	detail_id INT(10) UNSIGNED NOT NULL,#商品id
-	quantity int NOT NULL,#进货数量
+	quantity INT NOT NULL,#进货数量
 	total_amount DECIMAL(6, 2) NOT NULL,#进货总支出
 	purchase_date DATETIME NOT NULL,#进货日期
 	operator INT(10) UNSIGNED NOT NULL,#进货操作人id
@@ -114,7 +114,7 @@ CREATE TABLE purchase(#进货记录
 	PRIMARY KEY(id),
 	FOREIGN KEY(detail_id) REFERENCES goods_detail(id),
 	FOREIGN KEY(operator) REFERENCES staff_message(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE saller_sales(#销售订单信息
@@ -128,7 +128,7 @@ CREATE TABLE saller_sales(#销售订单信息
 	PRIMARY KEY(sell_id),
 	FOREIGN KEY(operator) REFERENCES staff_message(id),
 	FOREIGN KEY(custom_id) REFERENCES custom(custom_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE sell_detail(#订单项目信息/销售订单每项内容
 	detail_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -142,7 +142,7 @@ CREATE TABLE sell_detail(#订单项目信息/销售订单每项内容
 	PRIMARY KEY(detail_id),
 	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
 	FOREIGN KEY(goods_id) REFERENCES goods_message(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE sell_return(#退货记录/退货信息
@@ -154,7 +154,7 @@ CREATE TABLE sell_return(#退货记录/退货信息
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(return_id),
 	FOREIGN KEY(detail_id) REFERENCES sell_detail(detail_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE VIEW inventory #库存
 AS SELECT
@@ -162,37 +162,38 @@ AS SELECT
 	table_in.amount AS purchase_quantity, # 进货总数量
 	COALESCE(table_out.amount, 0) AS sell_quantity, #销售总数量
 	COALESCE(table_out.amount, 0) AS return_quantity, #退货总数量
-	COALESCE((table_in.amount - table_out.amount + table_back.amount), COALESCE(table_in.amount - table_out.amount, table_in.amount)) as quantity #库存数量
-FROM (SELECT detail_id, sum(quantity) amount from purchase GROUP by detail_id) table_in left join
-	(SELECT detail_id, sum(quantity) amount from sell_detail GROUP by detail_id) table_out
-		on table_in.detail_id = table_out.detail_id 
-			left join 
-			(select sell_detail.goods_id AS detail_id, sum(sell_detail.quantity) amount from sell_detail, sell_return WHERE sell_detail.detail_id=sell_return.detail_id GROUP by sell_detail.goods_id) table_back
-	    	on table_back.detail_id = table_in.detail_id;
+	COALESCE((table_in.amount - table_out.amount + table_back.amount), COALESCE(table_in.amount - table_out.amount, table_in.amount)) AS quantity #库存数量
+FROM (SELECT detail_id, SUM(quantity) amount FROM purchase GROUP BY detail_id) table_in LEFT JOIN
+	(SELECT detail_id, SUM(quantity) amount FROM sell_detail GROUP BY detail_id) table_out
+		ON table_in.detail_id = table_out.detail_id 
+			LEFT JOIN 
+			(SELECT sell_detail.goods_id AS detail_id, SUM(sell_detail.quantity) amount FROM sell_detail, sell_return WHERE sell_detail.detail_id=sell_return.detail_id GROUP BY sell_detail.goods_id) table_back
+	    	ON table_back.detail_id = table_in.detail_id;
 	    
 CREATE TABLE account(#账目信息
-	account_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	account_no VARCHAR(32) NOT NULL UNIQUE,#账目编码
 	purchase_id INT(10) UNSIGNED NULL,#进货信息id
 	sell_id INT(10) UNSIGNED NULL,#销售订单id
 	return_id INT(10) UNSIGNED NULL,#退货信息id
-	account_type int DEFAULT 0,#账目类型，0进货，1售货，2退货
+	account_type INT DEFAULT 0,#账目类型，0进货，1售货，2退货
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY(purchase_id) REFERENCES purchase(id),
 	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
 	FOREIGN KEY(return_id) REFERENCES sell_return(return_id),
-	PRIMARY KEY(account_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	PRIMARY KEY(id)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE public_message(
 	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	gender VARCHAR(16),
 	permissions VARCHAR(24),
 	PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 INSERT INTO public_message(gender, permissions)
 VALUES('男', '无权限'),('女', '仓库管理'), ('未知', '销售管理'), (NULL, '财务管理'), (NULL, '权限管理');
 
 DROP USER IF EXISTS 'clothed_root'@'localhost';
 CREATE USER 'clothed_root'@'localhost' IDENTIFIED BY '123456';
 GRANT ALL ON clothes_sale.* TO 'clothed_root'@'localhost';
+

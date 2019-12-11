@@ -41,7 +41,7 @@
                     <tr>        
                         <td><?php echo $v->account_no; ?></td>
                         <td>
-                            <?php echo CHtml::link($purchase_data->purchase_no, array('/PurchaseRecords/update','id'=>$purchase_data->id));?>
+                            <?php echo CHtml::link($purchase_data->purchase_no, array('/PurchaseRecords/read','id'=>$purchase_data->id));?>
                         </td>
                         <td><?php echo $v->created; ?></td>
                         <td>
