@@ -3,7 +3,7 @@ $db_host='localhost';
 $db_name="clothes_sale";
 // $db_name="school";
 
-$db_user="clothes_sale";
+$db_user="clothed_root";
 $db_pass='123456';
 
 Yii::setPathOfAlias('rootpath', ROOT_PATH);
