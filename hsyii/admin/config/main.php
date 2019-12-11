@@ -18,7 +18,7 @@ $st="";
         array(
             '库存统计',
             array(
-                'award_index41' => array('库存信息', 'InventoryInformation/index'),
+                'award_index41' => array('库存信息', 'GoodsInventoryInformation/index'),
             )
         ),
     );
@@ -34,7 +34,7 @@ $st="";
         array(
             '库存统计',
             array(
-                'award_index41' => array('库存信息', 'InventoryInformation/index'),
+                'award_index41' => array('库存信息', 'GoodsInventoryInformation/index'),
             )
         ) ,
     );
@@ -87,7 +87,7 @@ $st="";
 //    array(
 //        '库存统计',
 //        array(
-//            'award_index41' => array('库存信息', 'InventoryInformation/index'),
+//            'award_index41' => array('库存信息', 'GoodsInventoryInformation/index'),
 //        )
 //    ) ,
 //    array(

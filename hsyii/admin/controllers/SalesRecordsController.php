@@ -12,13 +12,41 @@ class SalesRecordsController extends BaseController{
         $this->redirect(array('/SalesDetail/index1','sellid'=>$id,'keywords'=>''));
     }
 
-    public function actionDelete($staff_id) {
-        $keyname = 'staff_id';
-        parent::_clear($staff_id, '', "$keyname");
-//        parent::_clear($staff_id);
+    public function actionDelete($id) {
+        parent::_clear($id);
     }
 
-    public function actionCreate() {
+    // public function actionCreate() {
+    //     $modelName = $this->model;
+    //     $model = new $modelName('create');
+    //     $data = array();
+    //     if (!Yii::app()->request->isPostRequest) {
+    //         $data['model'] = $model;
+    //         $this->render('/SalesRecords/update', $data);
+    //     }else{
+    //         $this-> saveData($model,$_POST[$modelName]);
+    //     }
+    // }
+
+    // public function actionUpdate($sell_id) {
+    //     $modelName = $this->model;
+    //     $model = $this->loadModel($sell_id, $modelName);
+    //     if (!Yii::app()->request->isPostRequest) {
+    //         $data = array();
+    //         $data['model'] = $model;
+    //         $this->render('/SalesRecords/update', $data);
+    //     } else {
+    //         $this-> saveData($model,$_POST[$modelName]);
+    //     }
+    // }/*曾老师保留部份，---结束*/
+
+    // function saveData($model,$post) {
+    //     $model->attributes =$post;
+    //     show_status($model->save(),'保存成功', get_cookie('_currentUrl_'),'保存失败');
+    // }
+
+
+        public function actionCreate() {
         $modelName = $this->model;
         $model = new $modelName('create');
         //创建新的account记录
