@@ -1,29 +1,29 @@
-DROP DATABASE if EXISTS clothes_sale;#建库
+DROP DATABASE IF EXISTS clothes_sale;#建库
 CREATE DATABASE clothes_sale;
 USE clothes_sale;
 
 CREATE TABLE staff_message(#员工信息
-	staff_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	staff_no VARCHAR(32) NOT NULL UNIQUE,#员工编码
-	staff_name VARCHAR(32) NOT NULL UNIQUE,#员工姓名
-	staff_log_name VARCHAR(24) NOT NULL,#员工登录名
-	staff_password VARCHAR(64) NOT NULL,#员工登录密码
-	staff_permissions INT DEFAULT 0 NOT NULL,#员工权限，0无权限，1仓库管理，2销售管理，3财务管理，4权限管理
-	gender int DEFAULT 0 NOT NULL,#员工性别，0男，1女
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	staff_no VARCHAR(32) NOT NULL DEFAULT '0000',#员工编码
+	staff_name VARCHAR(32) NOT NULL DEFAULT 'UNDEFIED',#员工姓名
+	staff_log_name VARCHAR(24) NOT NULL DEFAULT 'UNDEFIED',#员工登录名
+	staff_password VARCHAR(64) NOT NULL DEFAULT '123456',#员工登录密码
+	staff_permissions VARCHAR(24) NOT NULL DEFAULT '无权限',#员工权限，0无权限，1仓库管理，2销售管理，3财务管理，4权限管理
+	gender VARCHAR(16) NOT NULL DEFAULT '未知',#员工性别，0男，1女
 	telephone VARCHAR(15) DEFAULT '',#员工联系号码
-	address VARCHAR(64) NOT NULL,#员工住址
+	address VARCHAR(64) NOT NULL DEFAULT '',#员工住址
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(staff_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	PRIMARY KEY(id)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 -- 添加默认员工
 INSERT INTO staff_message(staff_no, staff_name, staff_log_name, staff_password, staff_permissions, gender, telephone, address) VALUES
-('2019qweasdzxc123','李丽', 'Lily', 'lili1234', 0, 1, '', '中山大道东'),
-('2019qweasdzxc124','周粥', 'Zhou', 'zhou1234', 1, 0, '', '中山大道南'),
-('2019qweasdzxc125','陈辰', 'Chen', 'chen1234', 2, 1, '', '中山大道西'),
-('2019qweasdzxc126','章张', 'Zhang', 'zhang1234', 2, 0, '', '中山大道北'),
-('2019qweasdzxc127','吕旅', 'Luly', 'lv1234', 3, 1, '', '中山大道中'),
-('2019qweasdzxc128','工头', 'admin', 'admin', 4, 1, '', '中山大道');
+('2019qweasdzxc123','李丽', 'Lily', 'lili1234', '无权限', '男', '', '中山大道东'),
+('2019qweasdzxc124','周粥', 'Zhou', 'zhou1234', '仓库管理', '女', '', '中山大道南'),
+('2019qweasdzxc125','陈辰', 'Chen', 'chen1234', '销售管理', '女', '', '中山大道西'),
+('2019qweasdzxc126','章张', 'Zhang', 'zhang1234', '财务管理', '男', '', '中山大道北'),
+('2019qweasdzxc127','吕旅', 'Luly', 'lv1234', '销售管理', '男', '', '中山大道中'),
+('2019qweasdzxc128','工头', 'admin', 'admin', '权限管理', '女', '', '中山大道');
 
 
 CREATE TABLE custom(#顾客信息
@@ -54,7 +54,7 @@ INSERT INTO goods_type(type_name) VALUES
 ('T恤'), ('裤子'), ('裙子'), ('衬衫');
 
 CREATE TABLE supplier(#供应商信息
-	supplier_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	supplier_no VARCHAR(32) NOT NULL UNIQUE,#供应商编码
 	supplier_name VARCHAR(64) NOT NULL,#供应商名称
 	address VARCHAR(64) NOT NULL,#供应商地址
@@ -62,7 +62,7 @@ CREATE TABLE supplier(#供应商信息
 	telephone VARCHAR(15) NOT NULL,#供应商联系号码
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(supplier_id)
+	PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 添加默认供应商
@@ -75,7 +75,7 @@ INSERT INTO supplier(supplier_no, supplier_name, address, contact, telephone, re
 
 
 CREATE TABLE goods_message(#商品基本信息
-	goods_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	goods_no VARCHAR(32) NOT NULL UNIQUE,#商品编码
 	supplier_id INT(10) UNSIGNED NOT NULL,#供应商id
 	type_id INT(10) UNSIGNED NOT NULL,#商品类型id
@@ -83,26 +83,26 @@ CREATE TABLE goods_message(#商品基本信息
 	metarial VARCHAR(32) NOT NULL,#商品材质
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(goods_id),
-	FOREIGN KEY(supplier_id) REFERENCES supplier(supplier_id),
+	PRIMARY KEY(id),
+	FOREIGN KEY(supplier_id) REFERENCES supplier(id),
 	FOREIGN KEY(type_id) REFERENCES goods_type(type_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE goods_detail(#商品款式信息
-	detail_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	detail_no VARCHAR(32) NOT NULL UNIQUE,#商品款式编码
 	goods_id INT(10) UNSIGNED NOT NULL,#商品信息id
 	detail_size VARCHAR(32) NOT NULL,#商品码数
 	detail_color VARCHAR(32) NOT NULL,#商品颜色
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(detail_id)
+	PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE purchase(#进货记录
-	purchase_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	purchase_no VARCHAR(32) NOT NULL UNIQUE,#进货编码
 	detail_id INT(10) UNSIGNED NOT NULL,#商品id
 	quantity int NOT NULL,#进货数量
@@ -111,9 +111,9 @@ CREATE TABLE purchase(#进货记录
 	operator INT(10) UNSIGNED NOT NULL,#进货操作人id
 	remark TEXT,#备注
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(purchase_id),
-	FOREIGN KEY(detail_id) REFERENCES goods_detail(detail_id),
-	FOREIGN KEY(operator) REFERENCES staff_message(staff_id)
+	PRIMARY KEY(id),
+	FOREIGN KEY(detail_id) REFERENCES goods_detail(id),
+	FOREIGN KEY(operator) REFERENCES staff_message(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -124,9 +124,9 @@ CREATE TABLE saller_sales(#销售订单信息
 	custom_id INT(10) UNSIGNED NOT NULL,#顾客id
 	amount DECIMAL(6, 2) NOT NULL,#销售总金额
 	sell_date DATETIME NOT NULL,#销售日期
-	cerated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(sell_id),
-	FOREIGN KEY(operator) REFERENCES staff_message(staff_id),
+	FOREIGN KEY(operator) REFERENCES staff_message(id),
 	FOREIGN KEY(custom_id) REFERENCES custom(custom_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -141,7 +141,7 @@ CREATE TABLE sell_detail(#订单项目信息/销售订单每项内容
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(detail_id),
 	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
-	FOREIGN KEY(goods_id) REFERENCES goods_message(goods_id)
+	FOREIGN KEY(goods_id) REFERENCES goods_message(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -178,10 +178,21 @@ CREATE TABLE account(#账目信息
 	return_id INT(10) UNSIGNED NULL,#退货信息id
 	account_type int DEFAULT 0,#账目类型，0进货，1售货，2退货
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	FOREIGN KEY(purchase_id) REFERENCES purchase(purchase_id),
+	FOREIGN KEY(purchase_id) REFERENCES purchase(id),
 	FOREIGN KEY(sell_id) REFERENCES saller_sales(sell_id),
 	FOREIGN KEY(return_id) REFERENCES sell_return(return_id),
 	PRIMARY KEY(account_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE public_message(
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	gender VARCHAR(16),
+	permissions VARCHAR(24),
+	PRIMARY KEY(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO public_message(gender, permissions)
+VALUES('男', '无权限'),('女', '仓库管理'), ('未知', '销售管理'), (NULL, '财务管理'), (NULL, '权限管理');
+
+DROP USER IF EXISTS 'clothed_root'@'localhost';
 CREATE USER 'clothed_root'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL ON clothes_sale.* TO 'clothed_root'@'localhost';
