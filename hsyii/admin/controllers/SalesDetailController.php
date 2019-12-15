@@ -47,6 +47,19 @@ class SalesDetailController extends BaseController{
         $model->attributes =$post;
         show_status($model->save(),'保存成功', get_cookie('_currentUrl_'),'保存失败');
     }
+    
+    //查看功能，不能修改
+    public function actionRead($id) {
+        $modelName = $this->model;
+        $model = $this->loadModel($id, $modelName);
+        if (!Yii::app()->request->isPostRequest) {
+            $data = array();
+            $data['model'] = $model;
+            $this->render('/SalesDetail/read', $data);
+        } else {
+            $this-> saveData($model,$_POST[$modelName]);
+        }
+    }
 
     ///列表搜索
     public function actionIndex( $keywords = '') {
