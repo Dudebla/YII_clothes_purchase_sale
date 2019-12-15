@@ -23,7 +23,8 @@
                     <tr>
                         <td><?php echo $form->labelEx($model, 'operator'); ?></td>
                         <td>
-                            <?php echo $form->dropDownList($model, 'operator', CHtml::listdata(StaffMessage::model()->findAll("id IS NOT NULL"),'id','id'),array('prompt'=>'请选择')); ?>
+                            <?php $staff_ID = Yii::app()->session['id']; ?>
+                            <?php echo $form->dropDownList($model, 'operator',array($staff_ID=>$staff_ID)); ?>
                             <?php echo $form->error($model, 'operator', $htmlOptions = array()); ?>
                         </td>
                     </tr>
