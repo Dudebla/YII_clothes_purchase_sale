@@ -119,6 +119,19 @@ class ReturnRecordsController extends BaseController{
         $data = array();
         parent::_list($model, $criteria, '/ReturnRecords/index', $data);
     }
+    
+    //查看功能，不能修改
+    public function actionRead($id) {
+        $modelName = $this->model;
+        $model = $this->loadModel($id, $modelName);
+        if (!Yii::app()->request->isPostRequest) {
+            $data = array();
+            $data['model'] = $model;
+            $this->render('/ReturnRecords/read', $data);
+        } else {
+            $this-> saveData($model,$_POST[$modelName]);
+        }
+    }
 
         //找出字符串中的数字并返回
     function findNum($str=''){
